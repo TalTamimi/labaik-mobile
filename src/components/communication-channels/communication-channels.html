@@ -1,6 +1,6 @@
 <div class="channels-label">
   <label>Communication Channels</label>
 </div>
-<div class="channel-icons"> <!--*ngFor=""-->
-  <channel-icon></channel-icon>
+<div class="channel-icons">
+  <channel-icon *ngFor="let channel of channels" [channel]="channel"></channel-icon>
 </div>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'channel-icon',
@@ -6,11 +7,13 @@ import { Component } from '@angular/core';
 })
 export class ChannelIconComponent {
 
-  text: string;
+  @Input() channel: any;
 
-  constructor() {
-    console.log('Hello ChannelIconComponent Component');
-    this.text = 'Hello World';
+  constructor(public navCtrl: NavController) {
+  }
+
+  pushPage(event) {
+    this.navCtrl.push(this.channel.page, this.channel);
   }
 
 }

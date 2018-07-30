@@ -5,6 +5,8 @@ import { CommunicationChannelsComponent } from './communication-channels/communi
 import { LogoComponent } from './logo/logo';
 import { ProfileComponent } from './profile/profile';
 import { ChannelIconComponent } from './channel-icon/channel-icon';
+import { BrowserModule } from '@angular/platform-browser';
+
 @NgModule({
 	declarations: [AppHeaderComponent,
     HajjTimelineComponent,
@@ -12,7 +14,7 @@ import { ChannelIconComponent } from './channel-icon/channel-icon';
     LogoComponent,
     ProfileComponent,
     ChannelIconComponent],
-	imports: [],
+	imports: [BrowserModule],
 	exports: [AppHeaderComponent,
     HajjTimelineComponent,
     CommunicationChannelsComponent,
