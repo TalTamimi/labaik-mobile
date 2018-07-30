@@ -1,0 +1,30 @@
+
+<ion-content >
+  <ion-row radio-group [(ngModel)]="langs">
+    <ion-col>
+      <ion-item>
+        <ion-label>English</ion-label>
+        <ion-radio value="er"></ion-radio>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-label>French</ion-label>
+        <ion-radio value="fr"></ion-radio>
+      </ion-item>
+    </ion-col>
+
+    <ion-col>
+      <ion-item>
+        <ion-label>العربية</ion-label>
+        <ion-radio value="ar"></ion-radio>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer no-shadow>
+  <ion-toolbar position="bottom">
+    <button ion-button full color="light" (click)="toLoginPage()">Next</button>
+  </ion-toolbar>
+</ion-footer>
