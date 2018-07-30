@@ -1,16 +1,16 @@
 channel-icon {
     .channel-icon {
-        width: 92px;
-        margin: 5px;
+        margin: 5px 0;
         text-align: center;
-        float: left;
         .icon {
             width: 63px;
             height: 63px;
-            line-height: 63px;
             background: #eeeeee;
             border-radius: 16px;
-            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
         }
         .label {
             margin-top: 5px;

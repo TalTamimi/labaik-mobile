@@ -1,5 +1,8 @@
 // http://ionicframework.com/docs/theming/
 
+@import "./node_modules/bootstrap-4-grid/scss/grid.scss";
+@import "./assets/fonts/style.scss";
+@import "./assets/style/colors.scss";
 
 // App Global Sass
 // --------------------------------------------------
@@ -16,5 +19,5 @@
 // automatically applied to the <body> element in the app.
 
 .content {
-    background-color: #f9f9f9;
+    background-color: $white-four;
 }

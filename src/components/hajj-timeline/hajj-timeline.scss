@@ -2,19 +2,19 @@ hajj-timeline {
     .timeline {
         // width: 380px;
         // height: 220px;
-        width: 95%;
-        height: 30%; 
-        margin: 0 auto;
-        margin-top: 10px;
+        height: 30%;
+        margin: 0 16px;
         border-radius: 16px;
         background-color: #ffffff;
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
         -webkit-transition: height 1s; /* For Safari 3.1 to 6.0 */
         transition: height 1s;
         transition-timing-function: ease;
+        overflow: hidden;
     }
     .expanded {
-        height: 97%;
+        height: 60%;
+        overflow: auto;
         // position: absolute;
         // top: 1%;
         // right: 2.5%;
@@ -62,7 +62,6 @@ hajj-timeline {
         float: left;
         padding: 15px 10px 10px 60px;
         font-size: 12px;
-        font-weight: 500;
         span#more {
             color: #2288bb;
         }
