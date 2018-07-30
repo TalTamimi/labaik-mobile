@@ -1,3 +1,46 @@
-profile {
+@import "./assets/style/colors.scss";
 
+profile {
+  .user-info{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+
+    .avatar-container{
+      position: relative;
+      .notifications-counter{
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        position: absolute;
+        z-index: 1;
+        background-color: #cb3f2d;
+        border: solid 2px #f9f9f9;
+        align-items: center;
+        font-size: 8px;
+        font-weight: bold;
+        left: -4px;
+        top: -4px;
+        opacity: 0;
+      }
+    }
+
+    .user-text{
+      margin: 0 7px;
+
+      .welcome-message{
+        font-size: 10px;
+        color: #9b9b9b;
+      }
+      .user-name{
+        font-size: 14px;
+        font-weight: bold;
+        color: $greyish-brown;
+      }
+    }
+  }
 }

@@ -6,11 +6,9 @@ import { Component } from '@angular/core';
 })
 export class ProfileComponent {
 
-  text: string;
+  counter:number = 0;
 
   constructor() {
-    console.log('Hello ProfileComponent Component');
-    this.text = 'Hello World';
   }
 
 }

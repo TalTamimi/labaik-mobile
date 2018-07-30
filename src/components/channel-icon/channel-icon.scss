@@ -1,3 +1,5 @@
+@import "./assets/style/colors.scss";
+
 channel-icon {
     .channel-icon {
         margin: 5px 0;
@@ -5,12 +7,17 @@ channel-icon {
         .icon {
             width: 63px;
             height: 63px;
-            background: #eeeeee;
+            background: $white-two;;
             border-radius: 16px;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 24px;
+            i{
+              &:before{
+                color: $greyish-brown !important;
+              }
+            }
         }
         .label {
             margin-top: 5px;
