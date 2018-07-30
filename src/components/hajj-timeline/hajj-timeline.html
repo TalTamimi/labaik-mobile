@@ -1,1 +1,21 @@
-
+<div (tap)="expandTimeline($event)" class="timeline" [ngClass]="isExpanded?'expanded':''">
+    <div class="visual">
+        <!--image-->
+    </div>
+    <div class="head">
+        <div class="dayNumber">
+            <label>{{content.dayNumber}}</label>
+        </div>
+        <div class="monthName">
+            <label>Dhu Al-Hijjah</label>
+        </div>
+        <div class="dayName">
+            <label>{{content.dayName}}</label>
+        </div>
+    </div>
+    <div class="body">
+        <span *ngIf="!isExpanded">{{content.briefContent}}</span>
+        <span *ngIf="isExpanded">{{content.fullContent}}</span>
+        <span id="more" (tap)="pushPage($event)">More</span>
+    </div>
+</div>

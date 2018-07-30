@@ -1,3 +1,70 @@
 hajj-timeline {
-
+    .timeline {
+        // width: 380px;
+        // height: 220px;
+        width: 95%;
+        height: 30%; 
+        margin: 0 auto;
+        margin-top: 10px;
+        border-radius: 16px;
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+        -webkit-transition: height 1s; /* For Safari 3.1 to 6.0 */
+        transition: height 1s;
+        transition-timing-function: ease;
+    }
+    .expanded {
+        height: 97%;
+        // position: absolute;
+        // top: 1%;
+        // right: 2.5%;
+        -webkit-transition: height 1s; /* For Safari 3.1 to 6.0 */
+        transition: height 1s;
+        transition-timing-function: ease;
+    }
+    .visual {
+        float: left;
+        width: 15%;
+        height: 100%;
+        border-right: 2px solid #dddddd;
+    }
+    .head {
+        width: 85%;
+        // height: 30%;
+        float: left;
+        padding: 10px 10px 10px 60px;
+        // margin-top: 5%;
+        .dayNumber {
+            float: left;
+            height: 100%;
+            font-size: 48px;
+            font-weight: 500;
+            // margin-top: 3%;
+        }
+        .monthName {
+            font-size: 18px;
+            font-weight: 500;
+            // margin-top: 10px;
+            // margin-top: 7%;
+            margin-top: 4%;
+            margin-left: 30px;
+        }
+        .dayName {
+            font-size: 14px;
+            font-weight: 500;
+            color: #7a7a7a;
+            margin-left: 30px;
+        }
+    }
+    .body {
+        width: 85%;
+        // height: 70%;
+        float: left;
+        padding: 15px 10px 10px 60px;
+        font-size: 12px;
+        font-weight: 500;
+        span#more {
+            color: #2288bb;
+        }
+    }
 }
