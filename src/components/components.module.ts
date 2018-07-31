@@ -7,6 +7,7 @@ import { ProfileComponent } from './profile/profile';
 import { ChannelIconComponent } from './channel-icon/channel-icon';
 import { BrowserModule } from '@angular/platform-browser';
 import { AvatarComponent } from './avatar/avatar';
+import { LandingBackgroundComponent } from './landing-background/landing-background';
 
 @NgModule({
 	declarations: [AppHeaderComponent,
@@ -16,7 +17,9 @@ import { AvatarComponent } from './avatar/avatar';
     ProfileComponent,
     AvatarComponent,
     ChannelIconComponent,
-    AvatarComponent],
+    LandingBackgroundComponent,
+    AvatarComponent,
+    LandingBackgroundComponent],
 	imports: [BrowserModule],
 	exports: [AppHeaderComponent,
     HajjTimelineComponent,
@@ -24,6 +27,7 @@ import { AvatarComponent } from './avatar/avatar';
     LogoComponent,
     ProfileComponent,
     ChannelIconComponent,
-    AvatarComponent]
+    AvatarComponent,
+    LandingBackgroundComponent]
 })
 export class ComponentsModule {}
