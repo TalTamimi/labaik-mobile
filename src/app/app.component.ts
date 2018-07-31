@@ -1,3 +1,4 @@
+import { LandingPage } from './../pages/landing/landing';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -28,7 +29,7 @@ export class MyApp {
         if(hajjNumber) {
           this.rootPage =  HomePage;
         }else {
-          this.rootPage =  LanguageSelectionPage;
+          this.rootPage =  LandingPage;
         }
       });
 
