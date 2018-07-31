@@ -1,0 +1,20 @@
+{
+    "GENERAL": {
+        "WELCOME": "Welcome Back",
+        "COMMUNICATION_CHANNELS": "Communication Channels",
+        "MORE": "More"
+    },
+    "CHANNELS": {
+        "HEALTH": "Health",
+        "SECURITY": "Security",
+        "TRAFFIC": "Traffic",
+        "PUBLIC_SERVICES": "Public Services",
+        "FOOD_&_DRINKS": "Food & Drinks",
+        "DEPENDANTS": "Dependants",
+        "METRO_LINE": "Metro line",
+        "MY_CAMPAIGN": "My Campaign",
+        "CROWDS": "Crowds",
+        "HAJJ_GUIDE": "Hajj Guide",
+        "CLEANING": "Cleaning"
+    }
+}

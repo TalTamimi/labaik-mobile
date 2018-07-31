@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { AppHeaderComponent } from './app-header/app-header';
 import { HajjTimelineComponent } from './hajj-timeline/hajj-timeline';
 import { CommunicationChannelsComponent } from './communication-channels/communication-channels';
@@ -17,7 +18,7 @@ import { AvatarComponent } from './avatar/avatar';
     AvatarComponent,
     ChannelIconComponent,
     AvatarComponent],
-	imports: [BrowserModule],
+	imports: [BrowserModule, TranslateModule.forChild()],
 	exports: [AppHeaderComponent,
     HajjTimelineComponent,
     CommunicationChannelsComponent,

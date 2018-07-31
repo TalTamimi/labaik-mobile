@@ -1,0 +1,20 @@
+{
+    "GENERAL": {
+        "WELCOME": "مرحبا بعودتك",
+        "COMMUNICATION_CHANNELS": "قنوات الإتصال",
+        "MORE": "المزيد"
+    },
+    "CHANNELS": {
+        "HEALTH": "الصحة",
+        "SECURITY": "الأمن",
+        "TRAFFIC": "حركة السير",
+        "PUBLIC_SERVICES": "الخدمات العامة",
+        "FOOD_&_DRINKS": "الطعام والمشروبات",
+        "DEPENDANTS": "التابعين",
+        "METROLINE": "القطار",
+        "MY_CAMPAIGN": "حملتي",
+        "CROWDS": "الإزدحام",
+        "HAJJ_GUIDE": "دليل الحج",
+        "CLEANING": "النظافة"
+    }
+}

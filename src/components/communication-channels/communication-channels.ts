@@ -10,67 +10,67 @@ export class CommunicationChannelsComponent {
   channels = [
     {
         id: 1,
-        label: "Health",
+        label: "HEALTH",
         icon: "health-stethoscope",
         page: "HealthPage"
     },
     {
         id: 2,
-        label: "Security",
+        label: "SECURITY",
         icon: "police-officer-1",
         page: "SecurityPage"
     },
     {
         id: 3,
-        label: "Traffic",
+        label: "TRAFFIC",
         icon: "road-1",
         page: "TrafficPage"
     },
     {
         id: 4,
-        label: "Public Services",
+        label: "PUBLIC_SERVICES",
         icon: "user-group-circle",
         page: "PublicServicesPage"
     },
     {
         id: 5,
-        label: "Food & Drinks",
+        label: "FOOD_&_DRINKS",
         icon: "kitchen-fork-knife",
         page: "FoodPage"
     },
     {
         id: 6,
-        label: "Dependants",
+        label: "DEPENDANTS",
         icon: "user-group",
         page: "FatwaPage"
     },
     {
         id: 7,
-        label: "Metro line",
+        label: "METRO_LINE",
         icon: "train-tunnel-2",
         page: "MetroLinePage"
     },
     {
         id: 8,
-        label: "My Campaign",
+        label: "MY_CAMPAIGN",
         icon: "share-megaphone-1",
         page: "MyCampaignPage"
     },
     {
         id: 9,
-        label: "Crowds",
+        label: "CROWDS",
         icon: "user-group",
         page: "CrowdsPage"
     },
     {
         id: 10,
-        label: "Hajj Guide",
+        label: "HAJJ_GUIDE",
         icon: "kaaba",
         page: "HajjGuidePage"
     },
     {
         id: 11,
-        label: "Waste",
+        label: "CLEANING",
         icon: "eco-throw-trash",
         page: "WastePage"
     }

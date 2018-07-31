@@ -17,6 +17,6 @@
     <div class="body">
         <span *ngIf="!isExpanded">{{content.briefContent}}</span>
         <span *ngIf="isExpanded">{{content.fullContent}}</span>
-        <span id="more" (tap)="pushPage($event)">More</span>
+        <span id="more" (tap)="pushPage($event)">{{ 'GENERAL.MORE' | translate }}</span>
     </div>
 </div>
