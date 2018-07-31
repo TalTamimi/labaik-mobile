@@ -1,26 +1,46 @@
+@import "./assets/style/colors.scss";
+
 profile {
-    .profile-header {
-        width: 50%;
-        height: 100%;
-        float: left;
-        .avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 25px;
-            float: left;
-            background: rgb(172, 67, 67);
-            margin: 12% 3px 0px 20%;
-        }
-        .welcome {
-            font-size: 11px;
-            font-weight: 500;
-            color: #9b9b9b;
-            margin-top: 16%;
-        }
-        .username {
-            font-size: 15px;
-            font-weight: bold;
-            color: #4a4a4a;
-        }
+  .user-info{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+
+    .avatar-container{
+      position: relative;
+      .notifications-counter{
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        position: absolute;
+        z-index: 1;
+        background-color: #cb3f2d;
+        border: solid 2px #f9f9f9;
+        align-items: center;
+        font-size: 8px;
+        font-weight: bold;
+        left: -4px;
+        top: -4px;
+        opacity: 0;
+      }
     }
+
+    .user-text{
+      margin: 0 7px;
+
+      .welcome-message{
+        font-size: 10px;
+        color: #9b9b9b;
+      }
+      .user-name{
+        font-size: 14px;
+        font-weight: bold;
+        color: $greyish-brown;
+      }
+    }
+  }
 }

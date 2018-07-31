@@ -1,6 +1,11 @@
-<div class="channels-label">
+<div class="channels-label animated fadeInUp">
   <label>Communication Channels</label>
 </div>
-<div class="channel-icons">
-  <channel-icon *ngFor="let channel of channels" [channel]="channel"></channel-icon>
+<div class="channel-icons row">
+  <div
+    class="col-3 col-md-2 animated fadeIn"
+    *ngFor="let channel of channels; let i = index"
+    [ngStyle]="{'animation-delay': (i + 1 ) / 20 + 's' }">
+    <channel-icon [channel]="channel"></channel-icon>
+  </div>
 </div>

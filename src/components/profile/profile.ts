@@ -6,8 +6,10 @@ import { Component, Input } from '@angular/core';
 })
 export class ProfileComponent {
 
-  @Input() username: string = 'Muhammed';
-  @Input() avatarImg = '';
+  // @Input() username: string = 'Muhammed';
+  // @Input() avatarImg = '';
+
+  counter:number = 0;
 
   constructor() {
 

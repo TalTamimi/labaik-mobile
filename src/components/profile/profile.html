@@ -1,5 +1,16 @@
-<div class="profile-header">
-    <div class="avatar"></div>
-    <div class="welcome">Welcome Back</div>
-    <div class="username">{{username}}</div>
+<div class="user-info animated fadeIn" style="animation-delay: 0.1s">
+    <div class="avatar-container">
+        <div class="notifications-counter animated" [ngClass]="{'bounceIn' : counter !== 0}">
+          <span>{{ counter }}</span>
+        </div>
+        <avatar></avatar>
+    </div>
+    <div class="user-text">
+      <div class="welcome-message">
+        <span>Welcome Back</span>
+      </div>
+      <div class="user-name">
+        <span>Muhammad</span>
+      </div>
+    </div>
 </div>

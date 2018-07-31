@@ -1,13 +1,6 @@
-logo {
-    .logo {
-        width: 50%;
-        height: 100%;
-        float: left;
-        img {
-            width: 75px;
-            height: 75px;
-            margin: 6% 0px 0px 10%;
-            border: 2px solid;
-        }
-    }
+@import "./assets/style/colors.scss";
+
+.logo {
+  color: $sick-green;
+  font-size: 45px;
 }

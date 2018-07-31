@@ -1,12 +1,14 @@
+@import "./assets/style/colors.scss";
+
 communication-channels {
     .channels-label {
-        margin: 20px;
-        color: gray;
+        margin: 24px 24px 12px 24px;
+        color: $warm-grey;
         text-align: left;
-        font-weight: bold;
-        font-size: 17px;
+        font-size: 18px;
     }
     .channel-icons {
-        
+      text-align: center;
+      padding: 0 24px;
     }
 }

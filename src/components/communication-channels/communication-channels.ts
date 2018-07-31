@@ -9,73 +9,73 @@ export class CommunicationChannelsComponent {
 
   channels = [
     {
-        id: 1, 
+        id: 1,
         label: "Health",
-        icon: "health",
+        icon: "health-stethoscope",
         page: "HealthPage"
     },
     {
-        id: 2, 
+        id: 2,
         label: "Security",
-        icon: "security",
+        icon: "police-officer-1",
         page: "SecurityPage"
     },
     {
-        id: 3, 
+        id: 3,
         label: "Traffic",
-        icon: "traffic",
+        icon: "road-1",
         page: "TrafficPage"
     },
     {
-        id: 4, 
+        id: 4,
         label: "Public Services",
-        icon: "services",
+        icon: "user-group-circle",
         page: "PublicServicesPage"
     },
     {
-        id: 5, 
+        id: 5,
         label: "Food & Drinks",
-        icon: "food",
+        icon: "kitchen-fork-knife",
         page: "FoodPage"
     },
     {
-        id: 6, 
-        label: "Fatwa",
-        icon: "fatwa",
+        id: 6,
+        label: "Dependants",
+        icon: "user-group",
         page: "FatwaPage"
     },
     {
-        id: 7, 
+        id: 7,
         label: "Metro line",
-        icon: "metro",
+        icon: "train-tunnel-2",
         page: "MetroLinePage"
     },
     {
-        id: 8, 
+        id: 8,
         label: "My Campaign",
-        icon: "campaign",
+        icon: "share-megaphone-1",
         page: "MyCampaignPage"
     },
     {
-        id: 9, 
+        id: 9,
         label: "Crowds",
-        icon: "crowds",
+        icon: "user-group",
         page: "CrowdsPage"
     },
     {
-        id: 10, 
+        id: 10,
         label: "Hajj Guide",
         icon: "kaaba",
         page: "HajjGuidePage"
     },
     {
-        id: 11, 
+        id: 11,
         label: "Waste",
-        icon: "waste",
+        icon: "eco-throw-trash",
         page: "WastePage"
     }
 ];
-  
+
   constructor(public restProvider: RestProvider) {
   }
 
