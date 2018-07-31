@@ -1,3 +1,26 @@
 profile {
-
+    .profile-header {
+        width: 50%;
+        height: 100%;
+        float: left;
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            float: left;
+            background: rgb(172, 67, 67);
+            margin: 12% 3px 0px 20%;
+        }
+        .welcome {
+            font-size: 11px;
+            font-weight: 500;
+            color: #9b9b9b;
+            margin-top: 16%;
+        }
+        .username {
+            font-size: 15px;
+            font-weight: bold;
+            color: #4a4a4a;
+        }
+    }
 }

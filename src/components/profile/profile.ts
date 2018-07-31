@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'profile',
@@ -6,11 +6,11 @@ import { Component } from '@angular/core';
 })
 export class ProfileComponent {
 
-  text: string;
+  @Input() username: string = 'Muhammed';
+  @Input() avatarImg = '';
 
   constructor() {
-    console.log('Hello ProfileComponent Component');
-    this.text = 'Hello World';
+
   }
 
 }

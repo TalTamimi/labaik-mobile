@@ -6,11 +6,8 @@ import { Component } from '@angular/core';
 })
 export class LogoComponent {
 
-  text: string;
 
   constructor() {
-    console.log('Hello LogoComponent Component');
-    this.text = 'Hello World';
   }
 
 }
