@@ -8,5 +8,14 @@
 
 
 <ion-content>
+  <div class="request-form">
+    <ion-item>
+        <ion-label>Condition</ion-label>
+        <ion-select [(ngModel)]="condition">
+          <ion-option value="1">Sunstroke</ion-option>
+          <ion-option value="2">Other</ion-option>
+        </ion-select>
+      </ion-item>
+  </div>
   <div #map id="map"></div>
 </ion-content>
