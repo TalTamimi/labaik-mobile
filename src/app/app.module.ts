@@ -1,4 +1,3 @@
-import { LandingService } from './../pages/landing/landing.service';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -18,6 +17,10 @@ import { RestProvider } from '../providers/rest/rest';
 import {IonicStorageModule} from "@ionic/storage";
 import {QRScanner} from "@ionic-native/qr-scanner";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FCM} from "@ionic-native/fcm";
+import { RegistrationProvider } from '../providers/registration/registration';
+import {LandingService} from "../pages/landing/landing.service";
+
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -57,7 +60,9 @@ export function createTranslateLoader(http: HttpClient) {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestProvider,
     LandingService,
-    QRScanner
+    QRScanner,
+    FCM,
+    RegistrationProvider,
   ]
 })
 export class AppModule {}

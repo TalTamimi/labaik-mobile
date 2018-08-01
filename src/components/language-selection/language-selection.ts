@@ -1,5 +1,6 @@
 import { LandingService } from './../../pages/landing/landing.service';
 import { Component, OnInit, Input } from '@angular/core';
+import {Storage} from "@ionic/storage";
 
 /**
  * Generated class for the LanguageSelectionComponent component.
@@ -16,7 +17,8 @@ export class LanguageSelectionComponent implements OnInit {
   @Input() hide = false;
   @Input() show = false;
   constructor(
-    public landingService: LandingService
+    public landingService: LandingService,
+    private storage: Storage
   ) {
   }
 
@@ -24,8 +26,8 @@ export class LanguageSelectionComponent implements OnInit {
     this.landingService.navigation.next('language-selection');
   }
 
-  changeLanguage(event){
-    console.log(event.path[0].innerHTML);
+  changeLanguage(event, lang: any){
+    this.storage.set('lang',lang);
     this.landingService.navigation.next('registration');
   }
 

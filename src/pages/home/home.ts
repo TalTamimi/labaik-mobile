@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import {FCM} from "@ionic-native/fcm";
 
 @Component({
   selector: 'page-home',
@@ -9,7 +10,11 @@ export class HomePage {
 
   channels: any;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private fcm:FCM) {
+    fcm.onTokenRefresh().subscribe(token=>{
+      // update device token id
+      console.log(token);
+    });
   }
 
 }
