@@ -34,6 +34,7 @@ landing-background {
       align-items: center;
       i{
         font-size: 100px;
+        transition: 1s font-size;
         color: #fff;
         z-index: 2;
         position: relative;

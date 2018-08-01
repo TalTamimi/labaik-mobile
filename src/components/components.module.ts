@@ -9,6 +9,9 @@ import { ChannelIconComponent } from './channel-icon/channel-icon';
 import { BrowserModule } from '@angular/platform-browser';
 import { AvatarComponent } from './avatar/avatar';
 import { LandingBackgroundComponent } from './landing-background/landing-background';
+import { LanguageSelectionComponent } from './language-selection/language-selection';
+import { ScanBarcodeComponent } from './scan-barcode/scan-barcode';
+import { ConfirmRegistrationComponent } from './confirm-registration/confirm-registration';
 
 @NgModule({
 	declarations: [AppHeaderComponent,
@@ -20,7 +23,10 @@ import { LandingBackgroundComponent } from './landing-background/landing-backgro
     ChannelIconComponent,
     LandingBackgroundComponent,
     AvatarComponent,
-    LandingBackgroundComponent],
+    LandingBackgroundComponent,
+    LanguageSelectionComponent,
+    ScanBarcodeComponent,
+    ConfirmRegistrationComponent],
 	imports: [BrowserModule, TranslateModule.forChild()],
 	exports: [AppHeaderComponent,
     HajjTimelineComponent,
@@ -29,6 +35,9 @@ import { LandingBackgroundComponent } from './landing-background/landing-backgro
     ProfileComponent,
     ChannelIconComponent,
     AvatarComponent,
-    LandingBackgroundComponent]
+    LandingBackgroundComponent,
+    LanguageSelectionComponent,
+    ScanBarcodeComponent,
+    ConfirmRegistrationComponent]
 })
 export class ComponentsModule {}

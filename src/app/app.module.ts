@@ -14,12 +14,11 @@ import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RestProvider } from '../providers/rest/rest';
-import { IonicStorageModule } from "@ionic/storage";
-import { LoginPage } from "../pages/login/login";
-import { LanguageSelectionPage } from "../pages/language-selection/language-selection";
-import { ConfirmRegistrationPage } from "../pages/confirm-registration/confirm-registration";
+import {IonicStorageModule} from "@ionic/storage";
+import {QRScanner} from "@ionic-native/qr-scanner";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
-export function createTranslateLoader(http: HttpClient) { 
+export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
@@ -27,10 +26,7 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     MyApp,
     LandingPage,
-    HomePage,
-    LoginPage,
-    LanguageSelectionPage,
-    ConfirmRegistrationPage
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -44,23 +40,22 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    })
+    }),
+    BrowserAnimationsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     LandingPage,
-    HomePage,
-    LoginPage,
-    LanguageSelectionPage,
-    ConfirmRegistrationPage
+    HomePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RestProvider
+    RestProvider,
+    QRScanner
   ]
 })
 export class AppModule {}

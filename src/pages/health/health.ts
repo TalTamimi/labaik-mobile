@@ -32,7 +32,7 @@ export class HealthPage {
       console.log(location);
       map = new google.maps.Map(this.mapElement.nativeElement, {
         center: {lat: location.coords.latitude, lng: location.coords.longitude},
-        zoom: 18
+        zoom: 15
       });
   
       infowindow = new google.maps.InfoWindow();
