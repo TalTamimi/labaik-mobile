@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { LandingService } from './../../pages/landing/landing.service';
+import { Component, OnInit, Input } from '@angular/core';
 
 /**
  * Generated class for the LanguageSelectionComponent component.
@@ -10,13 +11,22 @@ import { Component } from '@angular/core';
   selector: 'language-selection',
   templateUrl: 'language-selection.html'
 })
-export class LanguageSelectionComponent {
+export class LanguageSelectionComponent implements OnInit {
 
-  text: string;
+  @Input() hide = false;
+  @Input() show = false;
+  constructor(
+    public landingService: LandingService
+  ) {
+  }
 
-  constructor() {
-    console.log('Hello LanguageSelectionComponent Component');
-    this.text = 'Hello World';
+  ngOnInit() {
+    this.landingService.navigation.next('language-selection');
+  }
+
+  changeLanguage(event){
+    console.log(event.path[0].innerHTML);
+    this.landingService.navigation.next('registration');
   }
 
 }

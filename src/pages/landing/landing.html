@@ -1,9 +1,23 @@
 <ion-content>
-  <div class="landing">
+  <div class="landing" [ngClass]="{'short': viewHajjInformation}">
     <landing-background></landing-background>
     <div class="landing-content">
       <div class="content">
-        <scan-barcode></scan-barcode>
+        <language-selection
+          *ngIf="viewLanguageComponent"
+          [show]="currentNav === 'language-selection'"
+          [hide]="currentNav !== 'language-selection'">
+        </language-selection>
+        <registreation
+          *ngIf="viewRegistrationComponent"
+          [show]="currentNav === 'registration'"
+          [hide]="currentNav !== 'registration'">
+        </registreation>
+        <hajj-information
+          *ngIf="viewHajjInformation"
+          [show]="currentNav === 'hajj-information'"
+          [hide]="currentNav !== 'hajj-information'">
+        </hajj-information>
       </div>
     </div>
   </div>

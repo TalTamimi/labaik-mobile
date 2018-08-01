@@ -22,6 +22,7 @@ export class ScanBarcodeComponent {
     ((<any>window).document.querySelector('ion-app') as HTMLElement).classList.add('cameraView');
     ((<any>window).document.querySelector('.landing-content') as HTMLElement).classList.add('cameraView');
     ((<any>window).document.querySelector('.landing') as HTMLElement).classList.add('short');
+    ((<any>window).document.querySelector('.registration') as HTMLElement).classList.add('fadeOut');
     this.qrScanner.show();
     this.qrScanner.prepare()
       .then((status: QRScannerStatus) => {

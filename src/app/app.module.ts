@@ -1,3 +1,4 @@
+import { LandingService } from './../pages/landing/landing.service';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -53,6 +54,7 @@ export function createTranslateLoader(http: HttpClient) {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestProvider,
+    LandingService,
     QRScanner
   ]
 })

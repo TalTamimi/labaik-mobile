@@ -1,4 +1,22 @@
+@import "./assets/style/colors.scss";
+
 scan-barcode {
+  .barcode-icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button{
+      background: none !important;
+      i{
+        font-size: 22px;
+        color: $black-38;
+      }
+    }
+  }
 }
 
 ion-app.cameraView,

@@ -2,6 +2,8 @@
 
 @import "./node_modules/bootstrap-4-grid/scss/grid.scss";
 @import "./assets/fonts/style.scss";
+@import "./assets/style/inputs.scss";
+@import "./assets/style/buttons.scss";
 @import "./assets/style/colors.scss";
 
 // App Global Sass
@@ -20,4 +22,8 @@
 
 .content {
     background-color: $white-four;
+}
+
+.block{
+  display: block
 }

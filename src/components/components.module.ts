@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { AppHeaderComponent } from './app-header/app-header';
@@ -12,6 +13,8 @@ import { LandingBackgroundComponent } from './landing-background/landing-backgro
 import { LanguageSelectionComponent } from './language-selection/language-selection';
 import { ScanBarcodeComponent } from './scan-barcode/scan-barcode';
 import { ConfirmRegistrationComponent } from './confirm-registration/confirm-registration';
+import { RegistreationComponent } from './registreation/registreation';
+import { HajjInformationComponent } from './hajj-information/hajj-information';
 
 @NgModule({
 	declarations: [AppHeaderComponent,
@@ -26,8 +29,11 @@ import { ConfirmRegistrationComponent } from './confirm-registration/confirm-reg
     LandingBackgroundComponent,
     LanguageSelectionComponent,
     ScanBarcodeComponent,
-    ConfirmRegistrationComponent],
-	imports: [BrowserModule, TranslateModule.forChild()],
+    RegistreationComponent,
+    ConfirmRegistrationComponent,
+    RegistreationComponent,
+    HajjInformationComponent],
+	imports: [BrowserModule, TranslateModule.forChild(), FormsModule],
 	exports: [AppHeaderComponent,
     HajjTimelineComponent,
     CommunicationChannelsComponent,
@@ -38,6 +44,8 @@ import { ConfirmRegistrationComponent } from './confirm-registration/confirm-reg
     LandingBackgroundComponent,
     LanguageSelectionComponent,
     ScanBarcodeComponent,
-    ConfirmRegistrationComponent]
+    ConfirmRegistrationComponent,
+    RegistreationComponent,
+    HajjInformationComponent]
 })
 export class ComponentsModule {}
