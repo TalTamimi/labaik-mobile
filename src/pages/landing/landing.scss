@@ -1,25 +1,48 @@
 @import "./assets/style/colors.scss";
 
 page-landing {
-  .landing-content{
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    float: left;
-    margin-top: -24px;
-    width: 100%;
-    height: 50%;
-    transition: 1s all;
-    background: $white-four;
-    transform: skew(0deg, -5deg);
-    -ms-transform: skew(0deg, -5deg);
-    -webkit-transform: skew(0deg, -5deg);
-    .content{
-      transform: skew(0deg, 5deg);
-      -ms-transform: skew(0deg, 5deg);
-      -webkit-transform: skew(0deg, 5deg);
-      background: none;
+  .landing{
+    position: relative;
+    height: 100%;
+    .landing-content{
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      float: left;
+      margin-top: -24px;
+      width: 100%;
+      height: 50%;
+      transition: 1s all;
+      background: $white-four;
+      transform: skew(0deg, -5deg);
+      -ms-transform: skew(0deg, -5deg);
+      -webkit-transform: skew(0deg, -5deg);
+      .content{
+        transform: skew(0deg, 5deg);
+        -ms-transform: skew(0deg, 5deg);
+        -webkit-transform: skew(0deg, 5deg);
+        background: none;
+      }
+    }
+    &.short{
+      .landing-background{
+        max-height: 20%;
+        .icons-Logo{
+          font-size: 40px;
+        }
+      }
+      .landing-content{
+        height: calc(80% + 24px);
+        transform: skew(0deg, 0);
+        -ms-transform: skew(0deg, 0);
+        -webkit-transform: skew(0deg, 0);
+      }
+      .content {
+        transform: skew(0deg, 0) !important;
+        -ms-transform: skew(0deg, 0) !important;
+        -webkit-transform: skew(0deg, 0) !important;
+      }
     }
   }
 }
