@@ -1,0 +1,15 @@
+  <div class="registration animated" [ngClass]="{'fadeOutLeft': hide , 'fadeInLeft': show }">
+    <div class="group">
+      <input [(ngModel)]="hajjNumber" name="hajjNumber" type="text" required>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Hajj Number *</label>
+      <scan-barcode></scan-barcode>
+    </div>
+    <div>
+      <button
+        [ngClass]="{'disabled': hajjNumber === ''}"
+        (click)="goToNextComponent()"
+        class="rkmd-btn btn-teal ripple-effect rounded full-width">Next</button>
+    </div>
+  </div>

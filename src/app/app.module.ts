@@ -17,6 +17,10 @@ import { RestProvider } from '../providers/rest/rest';
 import {IonicStorageModule} from "@ionic/storage";
 import {QRScanner} from "@ionic-native/qr-scanner";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FCM} from "@ionic-native/fcm";
+import { RegistrationProvider } from '../providers/registration/registration';
+import {LandingService} from "../pages/landing/landing.service";
+
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -55,7 +59,10 @@ export function createTranslateLoader(http: HttpClient) {
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestProvider,
-    QRScanner
+    LandingService,
+    QRScanner,
+    FCM,
+    RegistrationProvider,
   ]
 })
 export class AppModule {}

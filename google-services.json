@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "683143251881",
+    "firebase_url": "https://lbek-notification.firebaseio.com",
+    "project_id": "lbek-notification",
+    "storage_bucket": "lbek-notification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:683143251881:android:745e0fb207f552dd",
+        "android_client_info": {
+          "package_name": "hajj.hakathon.lambda.labek"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "683143251881-7p0jj8lbmmqh0lad6jpilg6v406rfrvp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0QGxCZDxKZg2xwren0pwkGAZTSniCB2Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

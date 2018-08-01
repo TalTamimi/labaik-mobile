@@ -4,6 +4,7 @@ page-landing {
   .landing{
     position: relative;
     height: 100%;
+    overflow: hidden;
     .landing-content{
       z-index: 1;
       display: flex;
@@ -19,13 +20,16 @@ page-landing {
       -ms-transform: skew(0deg, -5deg);
       -webkit-transform: skew(0deg, -5deg);
       &.cameraView {
-        background: transparent none !important;
+        height: 24px !important;
+        overflow: hidden;
+        background: #fff;
       }
       .content{
         transform: skew(0deg, 5deg);
         -ms-transform: skew(0deg, 5deg);
         -webkit-transform: skew(0deg, 5deg);
         background: none;
+        padding: 0 24px;
       }
     }
     &.short{
