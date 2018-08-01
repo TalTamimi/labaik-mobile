@@ -1,5 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef  } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
+
+declare var google;
+  let map: any;
+  let infowindow: any;
+  let options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+};
 
 @IonicPage()
 @Component({
@@ -8,14 +18,56 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class HealthPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  @ViewChild('map') mapElement: ElementRef;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public geolocation: Geolocation) {
   }
 
   ionViewDidLoad() {
+    this.initMap();
   }
 
-  Back(event){
-    this.navCtrl.pop();
+  initMap() {
+    this.geolocation.getCurrentPosition().then((location) => {
+      console.log(location);
+      map = new google.maps.Map(this.mapElement.nativeElement, {
+        center: {lat: location.coords.latitude, lng: location.coords.longitude},
+        zoom: 18
+      });
+  
+      infowindow = new google.maps.InfoWindow();
+      var service = new google.maps.places.PlacesService(map);
+      service.nearbySearch({
+        location: {lat: location.coords.latitude, lng: location.coords.longitude},
+        radius: 1000,
+        type: ['hospital']
+      }, (results,status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            this.createMarker(results[i]);
+          }
+        }
+      });
+    }, (error) => {
+      console.log(error);
+      map = new google.maps.Map(this.mapElement.nativeElement, {
+        center: {lat: 41.85, lng: -87.65},
+        zoom: 18
+      });
+    });
+  }
+
+  createMarker(place) {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+      map: map,
+      position: placeLoc
+    });
+  
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.setContent(place.name);
+      infowindow.open(map, this);
+    });
   }
 
 }
