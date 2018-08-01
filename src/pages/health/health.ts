@@ -51,10 +51,23 @@ export class HealthPage {
     }, (error) => {
       console.log(error);
       map = new google.maps.Map(this.mapElement.nativeElement, {
-        center: {lat: 41.85, lng: -87.65},
+        center: {lat: 21.485811, lng: 39.192504799999995},
         zoom: 18
       });
     });
+    let watchID = navigator.geolocation.watchPosition(this.onPositionChangedSuccess, this.onPositionChangedError, { timeout: 30000 });
+  }
+
+  onPositionChangedSuccess(position) {
+    // TODO: Send position (latitude, longitude) to backend service
+    console.log(position.coords.latitude + ', ' + position.coords.longitude);
+  }
+
+  onPositionChangedError(error) {
+    // On error do nohting
+    // Show alert temporary for testing purpose
+    alert('code: '    + error.code    + '\n' +
+          'message: ' + error.message + '\n');
   }
 
   createMarker(place) {
