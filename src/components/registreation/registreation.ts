@@ -1,5 +1,6 @@
 import { LandingService } from './../../pages/landing/landing.service';
 import { Component, Input } from '@angular/core';
+import {Storage} from "@ionic/storage";
 
 /**
  * Generated class for the RegistreationComponent component.
@@ -18,7 +19,8 @@ export class RegistreationComponent {
   @Input() show = false;
 
   constructor(
-    public landingService: LandingService
+    public landingService: LandingService,
+    private storage: Storage
   ) {
   }
 
@@ -28,6 +30,7 @@ export class RegistreationComponent {
 
   goToNextComponent() {
     if (this.hajjNumber !== '') {
+      this.storage.set('hajjNumber',this.hajjNumber);
       this.landingService.navigation.next('hajj-information');
     }
   }
