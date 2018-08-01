@@ -6,7 +6,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';
-import {LanguageSelectionPage} from "../pages/language-selection/language-selection";
 @Component({
   templateUrl: 'app.html'
 })

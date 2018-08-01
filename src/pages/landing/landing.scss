@@ -18,6 +18,9 @@ page-landing {
       transform: skew(0deg, -5deg);
       -ms-transform: skew(0deg, -5deg);
       -webkit-transform: skew(0deg, -5deg);
+      &.cameraView {
+        background: transparent none !important;
+      }
       .content{
         transform: skew(0deg, 5deg);
         -ms-transform: skew(0deg, 5deg);
