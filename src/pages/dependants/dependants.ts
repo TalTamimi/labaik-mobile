@@ -23,8 +23,8 @@ export class DependantsPage {
 
   @ViewChild('map') mapElement: ElementRef;
   location = {
-    latitude: 21.485811,
-    longitude: 39.192504799999995
+    latitude: 21.616980,
+    longitude: 39.156355
   };
   dependantsLocation = [];
 
@@ -36,24 +36,24 @@ export class DependantsPage {
   }
 
   initMap() {
-    this.geolocation.getCurrentPosition(options).then((location) => {
-      this.location.latitude = location.coords.latitude;
-      this.location.longitude = location.coords.longitude;
+    // this.geolocation.getCurrentPosition(options).then((location) => {
+      // this.location.latitude = location.coords.latitude;
+      // this.location.longitude = location.coords.longitude;
       // Set coordinates to service
-      this.rest.setLocation(this.location);
+      // this.rest.setLocation(this.location);
       this.drawMap();
-    }, (error) => {
-      // Get coordinates from service
-      let oldLocation = this.rest.getLocation();
-      if (oldLocation) {
-        this.location = oldLocation;
-      }
-        map = new google.maps.Map(this.mapElement.nativeElement, {
-          center: {lat: this.location.latitude, lng: this.location.longitude},
-          zoom: 15
-        });
-        this.drawMap();
-    });
+    // }, (error) => {
+    //   // Get coordinates from service
+    //   let oldLocation = this.rest.getLocation();
+    //   if (oldLocation) {
+    //     this.location = oldLocation;
+    //   }
+    //     map = new google.maps.Map(this.mapElement.nativeElement, {
+    //       center: {lat: this.location.latitude, lng: this.location.longitude},
+    //       zoom: 15
+    //     });
+    //     this.drawMap();
+    // });
   }
 
   drawMap() {
@@ -84,7 +84,7 @@ export class DependantsPage {
     let latLng = new google.maps.LatLng(this.location.latitude, this.location.longitude);
     let marker = new google.maps.Marker({
       map: map,
-      icon: 'assets/imgs/logo.png',
+      icon: 'assets/imgs/current-sm.png',
       position: latLng
     });
   }

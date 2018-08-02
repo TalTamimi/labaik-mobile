@@ -28,8 +28,8 @@ export class HealthPage {
   draggableMarker: any;
   loadingMap = true;
   location = {
-    latitude: 21.485811,
-    longitude: 39.192504799999995
+    latitude: 21.616980,
+    longitude: 39.156355
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public geolocation: Geolocation, public rest: RestProvider) {
@@ -57,32 +57,32 @@ export class HealthPage {
   }
 
   initMap() {
-    this.geolocation.getCurrentPosition(options).then((location) => {
-      console.log('Got position :)', location);
-      this.location.latitude = location.coords.latitude;
-      this.location.longitude = location.coords.longitude;
+    // this.geolocation.getCurrentPosition(options).then((location) => {
+      // console.log('Got position :)', location);
+      // this.location.latitude = location.coords.latitude;
+      // this.location.longitude = location.coords.longitude;
       // Set coordinates to service
-      this.rest.setLocation(this.location);
+      // this.rest.setLocation(this.location);
       this.drawMap();
       this.drawRequestMap();
-    }, (error) => {
-      console.log('Nope :(');
-      // Get coordinates from service
-      let oldLocation = this.rest.getLocation();
-      if (oldLocation) {
-        this.location = oldLocation;
-      }
-        map = new google.maps.Map(this.mapElement.nativeElement, {
-          center: {lat: this.location.latitude, lng: this.location.longitude},
-          zoom: 15
-        });
-        requestMap = new google.maps.Map(this.requestMapElement.nativeElement, {
-          center: {lat: this.location.latitude, lng: this.location.longitude},
-          zoom: 15
-        });
-        this.drawMap();
-        this.drawRequestMap();
-    });  
+    // }, (error) => {
+    //   console.log('Nope :(');
+    //   // Get coordinates from service
+    //   let oldLocation = this.rest.getLocation();
+    //   if (oldLocation) {
+    //     this.location = oldLocation;
+    //   }
+    //     map = new google.maps.Map(this.mapElement.nativeElement, {
+    //       center: {lat: this.location.latitude, lng: this.location.longitude},
+    //       zoom: 15
+    //     });
+    //     requestMap = new google.maps.Map(this.requestMapElement.nativeElement, {
+    //       center: {lat: this.location.latitude, lng: this.location.longitude},
+    //       zoom: 15
+    //     });
+    //     this.drawMap();
+    //     this.drawRequestMap();
+    // });  
   }
 
   drawMap() {
@@ -134,7 +134,7 @@ export class HealthPage {
     let latLng = new google.maps.LatLng(this.location.latitude, this.location.longitude);
     let marker = new google.maps.Marker({
       map: map,
-      icon: 'assets/imgs/logo.png',
+      icon: 'assets/imgs/current-sm.png',
       position: latLng
     });
   }
