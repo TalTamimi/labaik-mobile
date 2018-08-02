@@ -8,15 +8,21 @@
 
 
 <ion-content>
-  <div class="request-form">
-    <ion-item>
-        <ion-label>Condition</ion-label>
-        <ion-select [(ngModel)]="condition">
-          <ion-option value="1">Sunstroke</ion-option>
-          <ion-option value="2">Other</ion-option>
-        </ion-select>
-      </ion-item>
-      <button ion-button (tap)="request()">Send</button>
+  <div class="request-form card">
+    <div class="title">
+        Ask for Help
+    </div>
+    <div class="select">
+        <select class="select-text" [(ngModel)]="condition" required>
+          <option value="1">Sunstroke</option>
+          <option value="2">Other</option>
+        </select>
+        <span class="select-highlight"></span>
+        <span class="select-bar"></span>
+        <label class="select-label">Condition</label>
+      </div>
+      <div #requestMap id="request-map"></div>
+      <button class="rkmd-btn btn-teal ripple-effect rounded full-width" (tap)="request()">Send</button>
   </div>
   <div #map id="map"></div>
 </ion-content>
