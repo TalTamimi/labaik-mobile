@@ -1,1 +1,14 @@
+<div [ngClass]="{'notificationBanner': true, 'show': showNotification}">
+  <div class="icon">
+    <i class="icons-user"></i>
+  </div>
+  <div class="message">
+    <div class="title">
+      {{title}}
+    </div>
+    <div class="msg">
+      {{body}}
+    </div>
+  </div>
+</div>
 <ion-nav [root]="rootPage"></ion-nav>
