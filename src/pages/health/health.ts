@@ -23,6 +23,7 @@ export class HealthPage {
   @ViewChild('map') mapElement: ElementRef;
   @ViewChild('requestMap') requestMapElement: ElementRef;
   condition = '1';
+  // talal = 0;
   draggableMarker: any;
   location = {
     latitude: 21.485811,
@@ -30,7 +31,6 @@ export class HealthPage {
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public geolocation: Geolocation, public rest: RestProvider) {
-    console.log('test health constructor');
   }
 
   ionViewDidLoad() {
@@ -38,6 +38,8 @@ export class HealthPage {
   }
 
   request() {
+    // let date = new Date('2018-08-02T13:51:48.497Z');
+    // date = new Date(date.setHours(date.getHours()+this.talal));
     let obj = {
       userId: 123467,
       condition: this.condition,
@@ -46,14 +48,12 @@ export class HealthPage {
       type: 1,
       time: new Date()
     }
-    this.rest.request(obj).subscribe((res) => {
-       // TODO: handle error or navigate back on success
-    });
+    // let random = Math.floor(Math.random() * 10) + 1;
+    // for(let i = 0; i < random; i++) {
+      this.rest.request(obj).subscribe((res) => {});
+    //}
   }
 
-  // ===============================================================
-  // V1
-  // ===============================================================
   initMap() {
     this.geolocation.getCurrentPosition(options).then((location) => {
       console.log('Got position :)', location);
@@ -81,13 +81,6 @@ export class HealthPage {
         this.drawMap();
         this.drawRequestMap();
     });
-    // let watchID = navigator.geolocation.watchPosition(this.onPositionChangedSuccess, this.onPositionChangedError, { timeout: 30000 });
-    let watch = this.geolocation.watchPosition();
-    watch.subscribe((data) => {
-      // data can be a set of coordinates, or an error (if an error occurred).
-      // data.coords.latitude
-      // data.coords.longitude
-     });
     
   }
 
@@ -96,6 +89,7 @@ export class HealthPage {
       center: {lat: this.location.latitude, lng: this.location.longitude},
       zoom: 15
     });
+    this.addUserMarker();
 
     infowindow = new google.maps.InfoWindow();
     let service = new google.maps.places.PlacesService(map);
@@ -104,7 +98,6 @@ export class HealthPage {
       radius: 5000,
       type: ['hospital']
     }, (results,status) => {
-      this.addUserMarker();
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         console.log(results);
         for (let i = 0; i < results.length; i++) {
