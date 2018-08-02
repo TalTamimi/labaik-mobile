@@ -11,7 +11,7 @@ declare var google;
     enableHighAccuracy: false,
     timeout: 10000,
     maximumAge: 0
-};
+  };
 
 @IonicPage()
 @Component({
@@ -24,6 +24,10 @@ export class HealthPage {
   @ViewChild('requestMap') requestMapElement: ElementRef;
   condition = '1';
   draggableMarker: any;
+  location = {
+    latitude: 21.485811,
+    longitude: 39.192504799999995
+  };
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public geolocation: Geolocation, public rest: RestProvider) {
     console.log('test health constructor');
@@ -53,30 +57,29 @@ export class HealthPage {
   initMap() {
     this.geolocation.getCurrentPosition(options).then((location) => {
       console.log('Got position :)', location);
+      this.location.latitude = location.coords.latitude;
+      this.location.longitude = location.coords.longitude;
       // Set coordinates to service
-      this.rest.setLocation(location);
-      this.drawMap(location);
-      this.drawRequestMap(location);
+      this.rest.setLocation(this.location);
+      this.drawMap();
+      this.drawRequestMap();
     }, (error) => {
       console.log('Nope :(');
       // Get coordinates from service
-      let location = this.rest.getLocation();
-      if (location) {
-        this.drawMap(location);
-        this.drawRequestMap(location);
-      }else {
-        let lat = 21.485811;
-        let lng = 39.192504799999995;
+      let oldLocation = this.rest.getLocation();
+      if (oldLocation) {
+        this.location = oldLocation;
+      }
         map = new google.maps.Map(this.mapElement.nativeElement, {
-          center: {lat: lat, lng: lng},
+          center: {lat: this.location.latitude, lng: this.location.longitude},
           zoom: 15
         }); 
         requestMap = new google.maps.Map(this.requestMapElement.nativeElement, {
-          center: {lat: lat, lng: lng},
+          center: {lat: this.location.latitude, lng: this.location.longitude},
           zoom: 15
         });
-        this.addDraggableMarker(lat, lng);
-      }
+        this.drawMap();
+        this.drawRequestMap();
     });
     // let watchID = navigator.geolocation.watchPosition(this.onPositionChangedSuccess, this.onPositionChangedError, { timeout: 30000 });
     let watch = this.geolocation.watchPosition();
@@ -88,20 +91,20 @@ export class HealthPage {
     
   }
 
-  drawMap(location) {
+  drawMap() {
     map = new google.maps.Map(this.mapElement.nativeElement, {
-      center: {lat: location.coords.latitude, lng: location.coords.longitude},
+      center: {lat: this.location.latitude, lng: this.location.longitude},
       zoom: 15
     });
 
     infowindow = new google.maps.InfoWindow();
     let service = new google.maps.places.PlacesService(map);
     service.nearbySearch({
-      location: {lat: location.coords.latitude, lng: location.coords.longitude},
+      location: {lat: this.location.latitude, lng: this.location.longitude},
       radius: 5000,
       type: ['hospital']
     }, (results,status) => {
-      this.addUserMarker(location);
+      this.addUserMarker();
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         console.log(results);
         for (let i = 0; i < results.length; i++) {
@@ -111,12 +114,12 @@ export class HealthPage {
     });
   }
 
-  drawRequestMap(location) {
+  drawRequestMap() {
     requestMap = new google.maps.Map(this.requestMapElement.nativeElement, {
-      center: {lat: location.coords.latitude, lng: location.coords.longitude},
+      center: {lat: this.location.latitude, lng: this.location.longitude},
       zoom: 15
     });
-    this.addDraggableMarker(location.coords.latitude, location.coords.longitude);
+    this.addDraggableMarker();
   }
 
   addPlaceMarker(place) {
@@ -132,8 +135,8 @@ export class HealthPage {
     });
   }
 
-  addUserMarker(location) {
-    let latLng = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
+  addUserMarker() {
+    let latLng = new google.maps.LatLng(this.location.latitude, this.location.longitude);
     let marker = new google.maps.Marker({
       map: map,
       icon: 'assets/imgs/logo.png',
@@ -141,11 +144,11 @@ export class HealthPage {
     });
   }
 
-  addDraggableMarker(lat, lng) {
+  addDraggableMarker() {
     this.draggableMarker = new google.maps.Marker({
       map: requestMap,
       draggable: true,
-      position: {lat: lat, lng: lng}
+      position: {lat: this.location.latitude, lng: this.location.longitude}
     });
   }
 
