@@ -16,6 +16,7 @@ import { Storage } from '@ionic/storage';
 })
 export class HajjInformationComponent implements OnInit {
 
+  lang: any;
   text: string;
   @Input() hide = false;
   @Input() show = false;
@@ -44,11 +45,15 @@ export class HajjInformationComponent implements OnInit {
       this.deviceTokenId = token;
     });
 
+    this.storage.get('lang').then((lang) => {
+      this.lang = lang;
+    });
     this.landingService.navigation.next('hajj-information');
   }
 
   registerHajj() {
     this.hajjData.deviceTokenId = this.deviceTokenId;
+    this.hajjData.language = this.lang;
     this.registrationService.RegisterHajj(this.hajjData,this.hajjNumber).subscribe(res => {
     })
   }
