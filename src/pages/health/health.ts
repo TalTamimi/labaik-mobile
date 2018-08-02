@@ -7,8 +7,8 @@ declare var google;
   let map: any;
   let infowindow: any;
   let options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
+    enableHighAccuracy: false,
+    timeout: 10000,
     maximumAge: 0
 };
 
@@ -20,11 +20,11 @@ declare var google;
 export class HealthPage {
 
   @ViewChild('map') mapElement: ElementRef;
-  // markers = [];
   condition = '1';
   currentLocation: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public geolocation: Geolocation, public rest: RestProvider) {
+    console.log('test health constructor');
   }
 
   ionViewDidLoad() {
@@ -49,35 +49,25 @@ export class HealthPage {
   // V1
   // ===============================================================
   initMap() {
-    this.geolocation.getCurrentPosition().then((location) => {
-      this.currentLocation = {
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude
-      }
-      map = new google.maps.Map(this.mapElement.nativeElement, {
-        center: {lat: location.coords.latitude, lng: location.coords.longitude},
-        zoom: 14
-      });
-  
-      infowindow = new google.maps.InfoWindow();
-      let service = new google.maps.places.PlacesService(map);
-      service.nearbySearch({
-        location: {lat: location.coords.latitude, lng: location.coords.longitude},
-        radius: 5000,
-        type: ['hospital']
-      }, (results,status) => {
-        this.addUserMarker(location);
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (let i = 0; i < results.length; i++) {
-            this.createMarker(results[i]);
-          }
-        }
-      });
+    this.geolocation.getCurrentPosition(options).then((location) => {
+      console.log('Got position :)', location);
+      // Set coordinates to service
+      this.rest.setLocation(location);
+      this.drawMap(location);
     }, (error) => {
-      map = new google.maps.Map(this.mapElement.nativeElement, {
-        center: {lat: 21.485811, lng: 39.192504799999995},
-        zoom: 14
-      });
+      console.log('Nope :(');
+      // Get coordinates from service
+      let location = this.rest.getLocation();
+      if (location) {
+        this.drawMap(location);
+      }else {
+        let lat = 21.485811;
+        let lng = 39.192504799999995;
+        map = new google.maps.Map(this.mapElement.nativeElement, {
+          center: {lat: lat, lng: lng},
+          zoom: 15
+        }); 
+      }
     });
     // let watchID = navigator.geolocation.watchPosition(this.onPositionChangedSuccess, this.onPositionChangedError, { timeout: 30000 });
     let watch = this.geolocation.watchPosition();
@@ -87,6 +77,32 @@ export class HealthPage {
       // data.coords.longitude
      });
     
+  }
+
+  drawMap(location) {
+    this.currentLocation = {
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude
+    }
+    map = new google.maps.Map(this.mapElement.nativeElement, {
+      center: {lat: location.coords.latitude, lng: location.coords.longitude},
+      zoom: 15
+    });
+
+    infowindow = new google.maps.InfoWindow();
+    let service = new google.maps.places.PlacesService(map);
+    service.nearbySearch({
+      location: {lat: location.coords.latitude, lng: location.coords.longitude},
+      radius: 5000,
+      type: ['hospital']
+    }, (results,status) => {
+      this.addUserMarker(location);
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (let i = 0; i < results.length; i++) {
+          this.createMarker(results[i]);
+        }
+      }
+    });
   }
 
   // onPositionChangedSuccess(position) {
