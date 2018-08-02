@@ -15,6 +15,7 @@ import { ScanBarcodeComponent } from './scan-barcode/scan-barcode';
 import { ConfirmRegistrationComponent } from './confirm-registration/confirm-registration';
 import { RegistreationComponent } from './registreation/registreation';
 import { HajjInformationComponent } from './hajj-information/hajj-information';
+import { LoadingComponent } from './loading/loading';
 
 @NgModule({
 	declarations: [AppHeaderComponent,
@@ -32,7 +33,9 @@ import { HajjInformationComponent } from './hajj-information/hajj-information';
     RegistreationComponent,
     ConfirmRegistrationComponent,
     RegistreationComponent,
-    HajjInformationComponent],
+    HajjInformationComponent,
+    LoadingComponent,
+    LoadingComponent],
 	imports: [BrowserModule, TranslateModule.forChild(), FormsModule],
 	exports: [AppHeaderComponent,
     HajjTimelineComponent,
@@ -46,6 +49,8 @@ import { HajjInformationComponent } from './hajj-information/hajj-information';
     ScanBarcodeComponent,
     ConfirmRegistrationComponent,
     RegistreationComponent,
-    HajjInformationComponent]
+    HajjInformationComponent,
+    LoadingComponent,
+    LoadingComponent]
 })
 export class ComponentsModule {}

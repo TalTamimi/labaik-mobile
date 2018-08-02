@@ -40,6 +40,8 @@ page-landing {
         }
       }
       .landing-content{
+        align-items: flex-start !important;
+        padding: 16px;
         height: calc(80% + 24px);
         transform: skew(0deg, 0);
         -ms-transform: skew(0deg, 0);
@@ -49,6 +51,8 @@ page-landing {
         transform: skew(0deg, 0) !important;
         -ms-transform: skew(0deg, 0) !important;
         -webkit-transform: skew(0deg, 0) !important;
+        padding: 0;
+        width: 100%;
       }
     }
   }

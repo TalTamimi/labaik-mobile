@@ -1,7 +1,137 @@
 <!-- Generated template for the HajjInformationComponent component -->
 <div class="hajj-information animated" [ngClass]="{'fadeOutLeft': hide , 'fadeInLeft': show }">
-  <button
+  <loading *ngIf="loading"></loading>
+  <div *ngIf="!loading">
+    <div class="card">
+      <div class="row">
+        <div class="col-12">
+          <div class="title">
+              Your Information
+          </div>
+        </div>
+      </div>
+      <div class="card-content row">
+        <div class="col-6">
+          <div class="group">
+            <input
+              [(ngModel)]="hajjData.name"
+              disabled
+              name="firstName"
+              type="text"
+              class="ng-pristine ng-touched">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>First Name *</label>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="group">
+            <input
+              [(ngModel)]="hajjData.lastName"
+              disabled
+              name="lastName"
+              type="text"
+              class="ng-pristine ng-touched">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Last Name *</label>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="group">
+            <input
+              [(ngModel)]="hajjData.phoneNumber"
+              disabled
+              name="phoneNumber"
+              type="text"
+              class="ng-pristine ng-touched">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Phone Number *</label>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="group">
+            <input
+              [value]="getAgeGroup(hajjData.age)"
+              disabled
+              name="age"
+              type="text"
+              class="ng-pristine ng-touched">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Age Group *</label>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="group">
+            <input
+              [value]="getNationality(hajjData.nationality)"
+              disabled
+              name="nationality"
+              type="text"
+              class="ng-pristine ng-touched">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Nationality *</label>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="group">
+            <input
+              [(ngModel)]="hajjData.campaignName"
+              disabled
+              name="campaignName"
+              type="text"
+              class="ng-pristine ng-touched">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Campaign Name *</label>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="group radio">
+            <div class="md-radio md-radio-inline">
+                <input id="male" type="radio" name="male" [checked]="hajjData.gender === 0">
+                <label for="male">Male</label>
+              </div>
+              <div class="md-radio md-radio-inline">
+                <input id="female" type="radio" name="female" [checked]="hajjData.gender === 1">
+                <label for="female">Female</label>
+              </div>
+            <label>Gender *</label>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="group radio">
+            <div class="md-radio md-radio-inline">
+                <input id="yesWithChild" type="radio" name="yesWithChild" [checked]="hajjData.travelingWithChild">
+                <label for="yesWithChild">Yes</label>
+              </div>
+              <div class="md-radio md-radio-inline">
+                <input id="noWithChild" type="radio" name="noWithChild" [checked]="!hajjData.travelingWithChild">
+                <label for="noWithChild">No</label>
+              </div>
+            <label>Traveling With Child *</label>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="group radio">
+            <div class="md-radio md-radio-inline">
+                <input id="yesWithElder" type="radio" name="yesWithChild" [checked]="hajjData.travelingWithElder">
+                <label for="yesWithElder">Yes</label>
+              </div>
+              <div class="md-radio md-radio-inline">
+                <input id="noWithElder" type="radio" name="noWithChild" [checked]="!hajjData.travelingWithElder">
+                <label for="noWithElder">No</label>
+              </div>
+            <label>Traveling With Elder *</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
     (click)="registerHajj()"
-    class="rkmd-btn btn-teal ripple-effect rounded full-width">Next</button>
-  <p>{{test1}}</p>
+    class="rkmd-btn btn-teal ripple-effect rounded full-width">Confirm</button>
+  </div>
 </div>
