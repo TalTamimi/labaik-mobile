@@ -11,19 +11,9 @@ import { Injectable } from '@angular/core';
 export class RestProvider {
 
   apiUrl = 'http://localhost:3000';
+  location: any;
 
   constructor(public http: HttpClient) {
-    console.log('RestProvider been initialised');
-  }
-
-  getChannels() {
-    return new Promise(resolve => {
-      this.http.get(this.apiUrl+'/channels').subscribe(channles => {
-        resolve(channles);
-      }, err => {
-        console.log(err);
-      });
-    });
   }
 
   request(data: any){
@@ -43,6 +33,24 @@ export class RestProvider {
       .toString(16)
       .substring(1);
   }
+
+  setLocation(location: any) {
+    this.location = location;
+  }
+
+  getLocation() {
+    return this.location;
+  }
+
+  // getChannels() {
+  //   return new Promise(resolve => {
+  //     this.http.get(this.apiUrl+'/channels').subscribe(channles => {
+  //       resolve(channles);
+  //     }, err => {
+  //       console.log(err);
+  //     });
+  //   });
+  // }
 
   // getUsers() {
   //   return new Promise(resolve => {
