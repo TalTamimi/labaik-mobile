@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef  } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { RestProvider } from '../../providers/rest/rest'
 
 declare var google;
   let map: any;
@@ -21,12 +22,26 @@ export class HealthPage {
   @ViewChild('map') mapElement: ElementRef;
   // markers = [];
   condition = '1';
+  currentLocation: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public geolocation: Geolocation) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public geolocation: Geolocation, public rest: RestProvider) {
   }
 
   ionViewDidLoad() {
     this.initMap();
+  }
+
+  request() {
+    let obj = {
+      userId: 123467,
+      condition: this.condition,
+      latitude: this.currentLocation.latitude,
+      longitude: this.currentLocation.longitude,
+      type: 'health'
+    }
+    this.rest.request(obj).subscribe((res) => {
+       // TODO: handle error or navigate back on success
+    });
   }
 
   // ===============================================================
@@ -34,6 +49,10 @@ export class HealthPage {
   // ===============================================================
   initMap() {
     this.geolocation.getCurrentPosition().then((location) => {
+      this.currentLocation = {
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude
+      }
       map = new google.maps.Map(this.mapElement.nativeElement, {
         center: {lat: location.coords.latitude, lng: location.coords.longitude},
         zoom: 14

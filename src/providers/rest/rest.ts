@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 /*
@@ -24,6 +24,12 @@ export class RestProvider {
         console.log(err);
       });
     });
+  }
+
+  request(data: any){
+    let headers = new HttpHeaders();
+    headers = headers.append('Content-Type', 'application/json');
+   return this.http.put('https://hajj-hackathon1.firebaseio.com/reports.json', data, {headers: headers, responseType: 'text'});
   }
 
   // getUsers() {
