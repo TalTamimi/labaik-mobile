@@ -46,6 +46,7 @@ page-landing {
         transform: skew(0deg, 0);
         -ms-transform: skew(0deg, 0);
         -webkit-transform: skew(0deg, 0);
+        overflow: auto;
       }
       .content {
         transform: skew(0deg, 0) !important;
