@@ -1,5 +1,5 @@
 import { LandingPage } from './../pages/landing/landing';
-import { Component } from '@angular/core';
+import {Component, NgZone, OnInit} from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -7,14 +7,17 @@ import { HomePage } from '../pages/home/home';
 import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';
 import {FCM} from "@ionic-native/fcm";
+
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class MyApp{
   rootPage:any;
-
+  title: any;
+  body: any;
+  showNotification = false;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private storage: Storage,
-    translate: TranslateService, private fcm: FCM) {
+    translate: TranslateService, private fcm: FCM,   private zone: NgZone) {
     platform.ready().then(() => {
       translate.setDefaultLang('en');
       // translate.use('en');
@@ -38,12 +41,26 @@ export class MyApp {
         if(data.wasTapped){
           //console.log("Received in background");
         } else {
-          console.log("Received in foreground");
+          this.showNotification = true;
+          this.zone.run(() => {
+            if(data.title) {
+              this.title = data.title;
+            }
+            if(data.body){
+              this.body = data.body;
+            }
+            setTimeout(()=>{
+              this.showNotification = false;
+            }, 3000);
+          });
         }
       });
 
     });
 
     statusBar.styleDefault();
+
+
   }
+
 }

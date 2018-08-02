@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {Component, OnInit} from '@angular/core';
+import {NavController} from 'ionic-angular';
 import {FCM} from "@ionic-native/fcm";
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage implements OnInit{
 
   channels: any;
 
@@ -16,5 +16,9 @@ export class HomePage {
       console.log(token);
     });
   }
+
+  ngOnInit(): void {
+  }
+
 
 }
