@@ -60,6 +60,7 @@ export class HajjInformationComponent implements OnInit {
     this.hajjData.deviceTokenId = this.deviceTokenId;
     this.hajjData.language = this.lang;
     this.registrationService.RegisterHajj(this.hajjData,this.hajjNumber).subscribe(res => {
+      this.storage.set('hajjNumberFinal',this.hajjNumber);
       this.navCtrl.push(HomePage);
     })
   }
