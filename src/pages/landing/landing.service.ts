@@ -5,8 +5,13 @@ import { Subject } from 'rxjs/Subject';
 
 export class LandingService {
   public navigation = new Subject();
-
+  hajjNumberSubject = new Subject();
   constructor() {
 
   }
+
+  notifyHajjNumber(hajjNumber){
+    this.hajjNumberSubject.next(hajjNumber);
+  }
+
 }

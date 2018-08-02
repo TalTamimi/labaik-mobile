@@ -1,5 +1,5 @@
 import { LandingService } from './../../pages/landing/landing.service';
-import { Component, Input } from '@angular/core';
+import {Component, Input, NgZone} from '@angular/core';
 import {Storage} from "@ionic/storage";
 
 /**
@@ -20,12 +20,18 @@ export class RegistreationComponent {
 
   constructor(
     public landingService: LandingService,
-    private storage: Storage
+    private storage: Storage,
+    private zone: NgZone
   ) {
   }
 
   ngOnInit() {
     this.landingService.navigation.next('registration');
+    this.landingService.hajjNumberSubject.subscribe(res => {
+      this.zone.run(() => {
+        this.hajjNumber = res.toString();
+      });
+    })
   }
 
   goToNextComponent() {

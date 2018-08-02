@@ -39,6 +39,11 @@ export class HajjInformationComponent implements OnInit {
         this.hajjData =res;
       })
     });
+
+    this.fcm.getToken().then(token=>{
+      this.deviceTokenId = token;
+    });
+
     this.landingService.navigation.next('hajj-information');
   }
 

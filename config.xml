@@ -89,10 +89,8 @@
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-sqlite-storage" spec="^2.3.3" />
-    <plugin name="cordova-plugin-qrscanner" spec="^2.6.0" />
     <allow-navigation href="http://192.168.43.177:8100" />
     <allow-navigation href="http://10.0.12.91:8100" />
     <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
     <engine name="android" spec="6.4.0" />
-    <engine name="browser" spec="~5.0.3" />
 </widget>

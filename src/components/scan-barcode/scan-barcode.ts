@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {QRScanner, QRScannerStatus} from "@ionic-native/qr-scanner";
-
+import {LandingService} from "../../pages/landing/landing.service";
 /**
  * Generated class for the ScanBarcodeComponent component.
  *
@@ -15,7 +15,8 @@ export class ScanBarcodeComponent {
 
 
 
-  constructor(private qrScanner: QRScanner) {
+  constructor(private qrScanner: QRScanner,
+              private landingService: LandingService) {
   }
 
   scanBarcode() {
@@ -31,15 +32,16 @@ export class ScanBarcodeComponent {
 
 
           // start scanning
-          let scanSub = this.qrScanner.scan().subscribe((text: string) => {
-            console.log('Scanned something', text);
+          let scanSub = this.qrScanner.scan().subscribe((hajjNumber: string) => {
             ((<any>window).document.querySelector('ion-app') as HTMLElement).classList.remove('cameraView');
             ((<any>window).document.querySelector('.landing-content') as HTMLElement).classList.remove('cameraView');
             ((<any>window).document.querySelector('.landing') as HTMLElement).classList.remove('short');
+            ((<any>window).document.querySelector('.registration') as HTMLElement).classList.remove('fadeOut');
+            ((<any>window).document.querySelector('.registration') as HTMLElement).classList.remove('fadeIn');
+            this.landingService.notifyHajjNumber(hajjNumber);
             this.qrScanner.hide(); // hide camera preview
             scanSub.unsubscribe(); // stop scanning
           });
-
         } else if (status.denied) {
           // camera permission was permanently denied
           // you must use QRScanner.openSettings() method to guide the user to the settings page
