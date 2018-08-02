@@ -63,6 +63,7 @@ export class HealthPage {
       let location = this.rest.getLocation();
       if (location) {
         this.drawMap(location);
+        this.drawRequestMap(location);
       }else {
         let lat = 21.485811;
         let lng = 39.192504799999995;
@@ -70,6 +71,11 @@ export class HealthPage {
           center: {lat: lat, lng: lng},
           zoom: 15
         }); 
+        requestMap = new google.maps.Map(this.requestMapElement.nativeElement, {
+          center: {lat: lat, lng: lng},
+          zoom: 15
+        });
+        this.addDraggableMarker(lat, lng);
       }
     });
     // let watchID = navigator.geolocation.watchPosition(this.onPositionChangedSuccess, this.onPositionChangedError, { timeout: 30000 });
@@ -99,7 +105,7 @@ export class HealthPage {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         console.log(results);
         for (let i = 0; i < results.length; i++) {
-          this.createMarker(results[i]);
+          this.addPlaceMarker(results[i]);
         }
       }
     });
@@ -110,10 +116,10 @@ export class HealthPage {
       center: {lat: location.coords.latitude, lng: location.coords.longitude},
       zoom: 15
     });
-    this.addDraggableMarker(location);
+    this.addDraggableMarker(location.coords.latitude, location.coords.longitude);
   }
 
-  createMarker(place) {
+  addPlaceMarker(place) {
     let placeLoc = place.geometry.location;
     let marker = new google.maps.Marker({
       map: map,
@@ -135,58 +141,12 @@ export class HealthPage {
     });
   }
 
-  addDraggableMarker(location) {
+  addDraggableMarker(lat, lng) {
     this.draggableMarker = new google.maps.Marker({
       map: requestMap,
       draggable: true,
-      position: {lat: location.coords.latitude, lng: location.coords.longitude}
+      position: {lat: lat, lng: lng}
     });
   }
-
-  // ===============================================================
-  // V2
-  // ===============================================================
-  // initMap() {
-  //   this.geolocation.getCurrentPosition({ maximumAge: 3000, timeout: 5000, enableHighAccuracy: true }).then((resp) => {
-  //     let mylocation = new google.maps.LatLng(resp.coords.latitude,resp.coords.longitude);
-  //     map = new google.maps.Map(this.mapElement.nativeElement, {
-  //       zoom: 15,
-  //       center: mylocation
-  //     });
-  //   });
-  //   let watch = this.geolocation.watchPosition();
-  //   watch.subscribe((data) => {
-  //     console.log('changed', data);
-  //     this.deleteMarkers();
-  //     let updatelocation = new google.maps.LatLng(data.coords.latitude,data.coords.longitude);
-  //     let image = 'assets/imgs/blue-bike.png';
-  //     this.addMarker(updatelocation,image);
-  //     this.setMapOnAll(map);
-  //   });
-  // }
-
-  // addMarker(location, image) {
-  //   let marker = new google.maps.Marker({
-  //     position: location,
-  //     map: map
-  //     // icon: image
-  //   });
-  //   this.markers.push(marker);
-  // }
-  
-  // setMapOnAll(map) {
-  //   for (var i = 0; i < this.markers.length; i++) {
-  //     this.markers[i].setMap(map);
-  //   }
-  // }
-  
-  // clearMarkers() {
-  //   this.setMapOnAll(null);
-  // }
-  
-  // deleteMarkers() {
-  //   this.clearMarkers();
-  //   this.markers = [];
-  // }
 
 }
