@@ -28,7 +28,7 @@ export class MyApp {
         if(hajjNumber) {
           this.rootPage =  HomePage;
         }else {
-          this.rootPage =  HomePage;
+          this.rootPage =  LandingPage;
         }
       });
 
