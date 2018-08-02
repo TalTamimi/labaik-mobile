@@ -38,6 +38,19 @@
           </div>
         </div>
         <div class="col-6">
+          <div class="group radio flex">
+            <div class="md-radio md-radio-inline">
+                <input id="male" type="radio" name="male" [checked]="hajjData.gender === 0">
+                <label for="male">Male</label>
+              </div>
+              <div class="md-radio md-radio-inline">
+                <input id="female" type="radio" name="female" [checked]="hajjData.gender === 1">
+                <label for="female">Female</label>
+              </div>
+            <label>Gender *</label>
+          </div>
+        </div>
+        <div class="col-6">
           <div class="group">
             <input
               [(ngModel)]="hajjData.phoneNumber"
@@ -87,19 +100,6 @@
             <span class="highlight"></span>
             <span class="bar"></span>
             <label>Campaign Name *</label>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="group radio">
-            <div class="md-radio md-radio-inline">
-                <input id="male" type="radio" name="male" [checked]="hajjData.gender === 0">
-                <label for="male">Male</label>
-              </div>
-              <div class="md-radio md-radio-inline">
-                <input id="female" type="radio" name="female" [checked]="hajjData.gender === 1">
-                <label for="female">Female</label>
-              </div>
-            <label>Gender *</label>
           </div>
         </div>
         <div class="col-6">

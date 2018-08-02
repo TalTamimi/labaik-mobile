@@ -4,26 +4,26 @@
 .group 			  {
   position:relative;
   margin-bottom:24px;
-  &.radio{
-    label{
-      top: -10px;
-      font-size: 14px;
-      color: rgba(0, 0, 0, 0.38);
-    }
-  }
+  // &.radio{
+  //   label{
+  //     top: -10px;
+  //     font-size: 14px;
+  //     color: rgba(0, 0, 0, 0.38);
+  //   }
+  // }
   /* LABEL ======================================= */
-  label 				 {
-    color: $black-38;
-    font-size:18px;
-    font-weight:normal;
-    position:absolute;
-    pointer-events:none;
-    left:5px;
-    top:10px;
-    transition:0.2s ease all;
-    -moz-transition:0.2s ease all;
-    -webkit-transition:0.2s ease all;
-  }
+  // label 				 {
+  //   color: $black-38;
+  //   font-size:18px;
+  //   font-weight:normal;
+  //   position:absolute;
+  //   pointer-events:none;
+  //   left:5px;
+  //   top:10px;
+  //   transition:0.2s ease all;
+  //   -moz-transition:0.2s ease all;
+  //   -webkit-transition:0.2s ease all;
+  // }
 }
 input 				{
   font-size:18px;
@@ -37,11 +37,11 @@ input 				{
 input:focus 		{ outline:none; }
 
 /* active state */
-input:focus ~ label, input:valid ~ label , input:disabled ~ label	{
-  top:-10px;
-  font-size:14px;
-  color: $black-38;
-}
+// input:focus ~ label, input:valid ~ label , input:disabled ~ label	{
+//   top:-10px;
+//   font-size:14px;
+//   color: $black-38;
+// }
 
 /* BOTTOM BARS ================================= */
 .bar 	{ position:relative; display:block; width:300px; }

@@ -9,7 +9,7 @@ hajj-timeline {
     }
     .timeline {
         width: 95%;
-        height: 30%; 
+        height: 30%;
         margin: 0 auto;
         position: relative;
         border-radius: 16px;
@@ -20,7 +20,29 @@ hajj-timeline {
         transition-timing-function: ease;
         animation-name: collapse;
         animation-duration: 0.5s;
-        animation-fill-mode: forwards
+        animation-fill-mode: forwards;
+        overflow: hidden;
+        .line {
+          width: 2px;
+          background: #dddddd;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 50px;
+          height: 138%;
+        }
+        .day{
+          padding: 10px;
+          padding-top: 30px;
+        }
+        .icon{
+          position: absolute;
+          display: flex;
+          width: 80px;
+          justify-content: center;
+          height: 61px;
+          left: 9px;
+        }
     }
     .expanded {
         height: 97%;
@@ -29,41 +51,27 @@ hajj-timeline {
         transition-timing-function: ease;
         animation-name: exapnd;
         animation-duration: 0.5s;
-        animation-fill-mode: forwards
-    }
-    .visual {
-        float: left;
-        width: 15%;
-        height: 100%;
-        border-right: 2px solid #dddddd;
+        animation-fill-mode: forwards;
+        overflow: auto;
     }
     .head {
-        width: 85%;
-        float: left;
-        padding: 10px 10px 10px 60px;
+      display: flex;
+      align-items: center;
         .dayNumber {
-            float: left;
-            height: 100%;
             font-size: 48px;
             font-weight: 500;
         }
         .monthName {
             font-size: 18px;
             font-weight: 500;
-            margin-top: 4%;
-            margin-left: 30px;
         }
         .dayName {
             font-size: 14px;
             font-weight: 500;
             color: #7a7a7a;
-            margin-left: 30px;
         }
     }
     .body {
-        width: 85%;
-        float: left;
-        padding: 15px 10px 10px 60px;
         font-size: 12px;
         span#more {
             color: #2288bb;

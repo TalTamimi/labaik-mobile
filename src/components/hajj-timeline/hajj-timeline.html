@@ -1,22 +1,27 @@
 <div (tap)="expandTimeline($event)" class="timeline animated fadeIn" [ngClass]="isExpanded?'expanded':''">
-    <!--style="animation-delay: 0.2s"-->
-    <div class="visual">
-        <!--image-->
-    </div>
-    <div class="head">
-        <div class="dayNumber">
-            <label>{{content.dayNumber}}</label>
+    <div class="line"></div>
+    <div class="day" *ngFor="let day of hajjDays" id="{{day.dayNumber}}">
+      <div class="icon">
+        <img src="{{ './assets/imgs/' + day.iconName + '.svg'}}">
+      </div>
+      <div style="margin-left: 85px;">
+        <div class="head">
+            <div class="dayNumber">
+                <label>{{day.dayNumber}}</label>
+            </div>
+            <div style="margin-left: 8px;">
+              <div class="monthName">
+                  <label>Dhu Al-Hijjah</label>
+              </div>
+              <div class="dayName">
+                  <label>{{day.dayName}}</label>
+              </div>
+            </div>
         </div>
-        <div class="monthName">
-            <label>Dhu Al-Hijjah</label>
+        <div class="body">
+            <span>{{day.description}}</span>
+            <span id="more" (tap)="pushPage($event)">{{ 'GENERAL.MORE' | translate }}</span>
         </div>
-        <div class="dayName">
-            <label>{{content.dayName}}</label>
-        </div>
-    </div>
-    <div class="body">
-        <span *ngIf="!isExpanded">{{content.briefContent}}</span>
-        <span *ngIf="isExpanded">{{content.fullContent}}</span>
-        <span id="more" (tap)="pushPage($event)">{{ 'GENERAL.MORE' | translate }}</span>
+      </div>
     </div>
 </div>
