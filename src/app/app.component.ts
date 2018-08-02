@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';
 import {FCM} from "@ionic-native/fcm";
+import {Geolocation} from "@ionic-native/geolocation";
+import {RegistrationProvider} from "../providers/registration/registration";
 
 @Component({
   templateUrl: 'app.html'
@@ -17,7 +19,8 @@ export class MyApp{
   body: any;
   showNotification = false;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private storage: Storage,
-    translate: TranslateService, private fcm: FCM,   private zone: NgZone) {
+    translate: TranslateService, private fcm: FCM,   private zone: NgZone, private geoLocation:Geolocation
+  , private registrationProvider:RegistrationProvider) {
     platform.ready().then(() => {
       translate.setDefaultLang('en');
       // translate.use('en');
@@ -55,9 +58,22 @@ export class MyApp{
           });
         }
       });
-
     });
 
+    this.geoLocation.watchPosition().subscribe((postion: any) => {
+      storage.get('hajjNumberFinal').then((hajjNumber) => {
+        if(hajjNumber) {
+          this.registrationProvider.getHajjData(hajjNumber).subscribe( (data: any) => {
+            data.postion.lat = postion.coords.latitude;
+            data.postion.lng = postion.coords.longitude;
+            this.registrationProvider.RegisterHajj(data,hajjNumber).subscribe(res => {
+
+            })
+          })
+        }
+      });
+
+    });
     statusBar.styleDefault();
 
 

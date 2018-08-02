@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RestProvider } from '../../providers/rest/rest';
+import {DependantsPage} from "../../pages/dependants/dependants";
 
 @Component({
   selector: 'communication-channels',
@@ -42,7 +43,7 @@ export class CommunicationChannelsComponent {
         id: 6,
         label: "DEPENDANTS",
         icon: "user-group",
-        page: "FatwaPage"
+        page: "DependantsPage"
     },
     {
         id: 7,
