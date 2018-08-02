@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="hajj.hakathon.lambda.labek" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>nsk</name>
+<widget id="com.lamda.labyek" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Labyek</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
@@ -23,11 +23,11 @@
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
-        <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
-        <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
-        <icon density="xhdpi" src="resources/android/icon/drawable-xhdpi-icon.png" />
-        <icon density="xxhdpi" src="resources/android/icon/drawable-xxhdpi-icon.png" />
-        <icon density="xxxhdpi" src="resources/android/icon/drawable-xxxhdpi-icon.png" />
+        <icon density="mdpi" src="resources/android/icon/mipmap-mdpi.png" />
+        <icon density="hdpi" src="resources/android/icon/mipmap-hdpi.png" />
+        <icon density="xhdpi" src="resources/android/icon/mipmap-xhdpi.png" />
+        <icon density="xxhdpi" src="resources/android/icon/mipmap-xxhdpi.png" />
+        <icon density="xxxhdpi" src="resources/android/icon/mipmap-xxxhdpi.png" />
         <splash density="land-ldpi" src="resources/android/splash/drawable-land-ldpi-screen.png" />
         <splash density="land-mdpi" src="resources/android/splash/drawable-land-mdpi-screen.png" />
         <splash density="land-hdpi" src="resources/android/splash/drawable-land-hdpi-screen.png" />
@@ -93,6 +93,7 @@
     <allow-navigation href="http://192.168.43.177:8100" />
     <allow-navigation href="http://10.0.12.91:8100" />
     <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
+    <allow-navigation href="http://192.168.42.245:8100" />
     <engine name="android" spec="6.4.0" />
     <engine name="browser" spec="~5.0.3" />
 </widget>

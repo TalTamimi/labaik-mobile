@@ -34,7 +34,6 @@ import { LoadingComponent } from './loading/loading';
     ConfirmRegistrationComponent,
     RegistreationComponent,
     HajjInformationComponent,
-    LoadingComponent,
     LoadingComponent],
 	imports: [BrowserModule, TranslateModule.forChild(), FormsModule],
 	exports: [AppHeaderComponent,
@@ -50,7 +49,6 @@ import { LoadingComponent } from './loading/loading';
     ConfirmRegistrationComponent,
     RegistreationComponent,
     HajjInformationComponent,
-    LoadingComponent,
     LoadingComponent]
 })
 export class ComponentsModule {}
