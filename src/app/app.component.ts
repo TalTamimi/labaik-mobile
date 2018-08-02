@@ -24,7 +24,7 @@ export class MyApp {
         splashScreen.hide();
       }, 3000);
 
-      storage.get('hajjNumber').then((hajjNumber) => {
+      storage.get('hajjNumberFinal').then((hajjNumber) => {
         if(hajjNumber) {
           this.rootPage =  HomePage;
         }else {

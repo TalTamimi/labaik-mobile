@@ -65,11 +65,7 @@
             "cordova-sqlite-storage": {},
             "cordova-plugin-qrscanner": {},
             "cordova-plugin-fcm": {},
-            "cordova-plugin-geolocation": {},
-            "platforms": [
-                "android",
-                "browser"
-            ]
+            "cordova-plugin-geolocation": {}
         },
         "platforms": [
             "android",

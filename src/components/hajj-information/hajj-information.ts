@@ -1,3 +1,5 @@
+import { HomePage } from './../../pages/home/home';
+import { NavController } from 'ionic-angular';
 import { LandingService } from './../../pages/landing/landing.service';
 import { Component, Input, OnInit } from '@angular/core';
 import {RegistrationProvider} from "../../providers/registration/registration";
@@ -26,6 +28,7 @@ export class HajjInformationComponent implements OnInit {
   constructor(
     public landingService: LandingService,
     private fcm:FCM,
+    public navCtrl: NavController,
     private registrationService:RegistrationProvider,
     private storage: Storage
   ) {
@@ -40,12 +43,18 @@ export class HajjInformationComponent implements OnInit {
         this.loading = false;
       })
     });
+
+    this.fcm.getToken().then(token=>{
+      this.deviceTokenId = token;
+    });
+
     this.landingService.navigation.next('hajj-information');
   }
 
   registerHajj() {
     this.hajjData.deviceTokenId = this.deviceTokenId;
     this.registrationService.RegisterHajj(this.hajjData,this.hajjNumber).subscribe(res => {
+      this.navCtrl.push(HomePage);
     })
   }
 

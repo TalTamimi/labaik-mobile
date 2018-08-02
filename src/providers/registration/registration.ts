@@ -16,7 +16,7 @@ export class RegistrationProvider {
   RegisterHajj(data: any, id:any){
     let headers = new HttpHeaders();
     headers = headers.append('Content-Type', 'application/json');
-   return this.http.post('https://hajj-hackathon1.firebaseio.com/users/'+ id +'.json',data,{headers: headers, responseType: 'text'});
+   return this.http.put('https://hajj-hackathon1.firebaseio.com/users/'+ id +'.json',data,{headers: headers, responseType: 'text'});
   }
 
   getHajjData(id: any) {
