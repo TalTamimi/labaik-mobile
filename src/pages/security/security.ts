@@ -71,7 +71,6 @@ export class SecurityPage {
       type: ['police']
     }, (results,status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
-        console.log(results);
         for (let i = 0; i < results.length; i++) {
           this.addPlaceMarker(results[i]);
         }
