@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "683143251881",
-    "firebase_url": "https://lbek-notification.firebaseio.com",
-    "project_id": "lbek-notification",
-    "storage_bucket": "lbek-notification.appspot.com"
+    "project_number": "552583002159",
+    "firebase_url": "https://hajj-hackathon1.firebaseio.com",
+    "project_id": "hajj-hackathon1",
+    "storage_bucket": "hajj-hackathon1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:683143251881:android:745e0fb207f552dd",
+        "mobilesdk_app_id": "1:552583002159:android:362ebbec7b663c0a",
         "android_client_info": {
-          "package_name": "hajj.hakathon.lambda.labek"
+          "package_name": "com.lamda.labyek"
         }
       },
       "oauth_client": [
         {
-          "client_id": "683143251881-7p0jj8lbmmqh0lad6jpilg6v406rfrvp.apps.googleusercontent.com",
+          "client_id": "552583002159-mfck9f9akof40st5dls7vdkbddhgmthj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB0QGxCZDxKZg2xwren0pwkGAZTSniCB2Q"
+          "current_key": "AIzaSyCdOAQj5Wgkzt8pF7CwAD3lbUlsaFwmlA4"
         }
       ],
       "services": {
