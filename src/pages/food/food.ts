@@ -38,7 +38,7 @@ export class FoodPage {
     service.nearbySearch({
       location: {lat: this.location.latitude, lng: this.location.longitude},
       radius: 5000,
-      type: ['food']
+      type: ['restaurant']
     }, (results,status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (let i = 0; i < results.length; i++) {
