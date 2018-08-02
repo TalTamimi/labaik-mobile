@@ -7,6 +7,7 @@ declare var google;
   let map: any;
   let requestMap: any;
   let infowindow: any;
+  let expand = false;
   let options = {
     enableHighAccuracy: false,
     timeout: 10000,
@@ -25,6 +26,7 @@ export class HealthPage {
   condition = '1';
   // talal = 0;
   draggableMarker: any;
+  loadingMap = true;
   location = {
     latitude: 21.485811,
     longitude: 39.192504799999995
@@ -73,15 +75,14 @@ export class HealthPage {
         map = new google.maps.Map(this.mapElement.nativeElement, {
           center: {lat: this.location.latitude, lng: this.location.longitude},
           zoom: 15
-        }); 
+        });
         requestMap = new google.maps.Map(this.requestMapElement.nativeElement, {
           center: {lat: this.location.latitude, lng: this.location.longitude},
           zoom: 15
         });
         this.drawMap();
         this.drawRequestMap();
-    });
-    
+    });  
   }
 
   drawMap() {
@@ -105,6 +106,7 @@ export class HealthPage {
         }
       }
     });
+    this.loadingMap = false;
   }
 
   drawRequestMap() {
@@ -121,7 +123,7 @@ export class HealthPage {
       map: map,
       position: placeLoc
     });
-  
+
     google.maps.event.addListener(marker, 'click', function() {
       infowindow.setContent(place.name);
       infowindow.open(map, this);

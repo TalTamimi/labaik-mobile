@@ -9,7 +9,7 @@ import { HealthPage } from './health';
   ],
   imports: [
     IonicPageModule.forChild(HealthPage),
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
   ],
 })
 export class HealthPageModule {}
