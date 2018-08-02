@@ -37,7 +37,8 @@ export class HealthPage {
       condition: this.condition,
       latitude: this.currentLocation.latitude,
       longitude: this.currentLocation.longitude,
-      type: 'health'
+      type: 'health',
+      time: new Date()
     }
     this.rest.request(obj).subscribe((res) => {
        // TODO: handle error or navigate back on success

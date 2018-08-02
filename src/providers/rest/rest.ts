@@ -28,8 +28,20 @@ export class RestProvider {
 
   request(data: any){
     let headers = new HttpHeaders();
+    let uuid = this.guid();
+    console.log(uuid);
     headers = headers.append('Content-Type', 'application/json');
-   return this.http.put('https://hajj-hackathon1.firebaseio.com/reports.json', data, {headers: headers, responseType: 'text'});
+   return this.http.put('https://hajj-hackathon1.firebaseio.com/reports/' + uuid + '.json', data, {headers: headers, responseType: 'text'});
+  }
+
+  guid() {
+    return this.s4() + this.s4() + '-' + this.s4() + '-' + this.s4() + '-' + this.s4() + '-' + this.s4() + this.s4() + this.s4();
+  }
+
+  s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
   }
 
   // getUsers() {
