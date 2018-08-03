@@ -52,7 +52,9 @@ export class HealthPage {
     }
     // let random = Math.floor(Math.random() * 10) + 1;
     // for(let i = 0; i < random; i++) {
-      this.rest.request(obj).subscribe((res) => {});
+      this.rest.request(obj).subscribe((res) => {
+        this.navCtrl.pop();
+      });
     //}
   }
 
@@ -82,7 +84,7 @@ export class HealthPage {
     //     });
     //     this.drawMap();
     //     this.drawRequestMap();
-    // });  
+    // });
   }
 
   drawMap() {

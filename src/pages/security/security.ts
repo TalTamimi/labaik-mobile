@@ -48,12 +48,14 @@ export class SecurityPage {
       type: 2,
       time: new Date()
     }
-    this.rest.request(obj).subscribe((res) => {});
+    this.rest.request(obj).subscribe((res) => {
+      this.navCtrl.pop();
+    });
   }
 
   initMap() {
       this.drawMap();
-      this.drawRequestMap(); 
+      this.drawRequestMap();
   }
 
   drawMap() {
