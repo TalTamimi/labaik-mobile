@@ -1,4 +1,5 @@
 import { Component, AfterViewInit, Input, OnInit } from '@angular/core';
+import {Storage} from "@ionic/storage";
 
 const colors = ['#4B409A', '#4456a6', '#3a69b2', '#297bbf', '#1698d5', '#00afe5', '#19b1c9', '#32b4a8', '#47b686', '#55b868', '#60bb49'];
 
@@ -19,12 +20,15 @@ export class AvatarComponent implements OnInit, AfterViewInit {
   size = '';
   public backgroundColor = '#241d57';
 
-  constructor() {
+  constructor(private storage: Storage) {
 
   }
 
   ngOnInit() {
     // console.log(this.counter);
+    this.storage.get('imageUrl').then( imgUrl => {
+      this.imageURL = imgUrl;
+    })
   }
 
   ngAfterViewInit() {
