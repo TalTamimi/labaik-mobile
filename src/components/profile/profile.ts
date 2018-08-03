@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import {Storage} from "@ionic/storage";
 
 @Component({
   selector: 'profile',
@@ -11,9 +12,12 @@ export class ProfileComponent {
   // @Input() avatarImg = '';
 
   counter:number = 0;
-
-  constructor(translate: TranslateService) {
+  name: any = '';
+  constructor(translate: TranslateService, private storage:Storage) {
     // translate.setDefaultLang('en');
+    this.storage.get('name').then(name => {
+      this.name = name;
+    });
   }
 
 }
