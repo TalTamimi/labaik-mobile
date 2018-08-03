@@ -18,6 +18,9 @@ export class HomePage implements OnInit{
   }
 
   ngOnInit(): void {
+    this.navCtrl.remove(0);
+    this.navCtrl.remove(1);
+    this.navCtrl.remove(2);
   }
 
 

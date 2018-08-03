@@ -59,14 +59,17 @@ export class HajjInformationComponent implements OnInit {
   }
 
   registerHajj() {
+      this.loading = true;
       this.hajjData.deviceTokenId = this.deviceTokenId;
       this.hajjData.language = this.lang;
       this.registrationService.RegisterHajj(this.hajjData,this.hajjNumber).subscribe(res => {
-
         this.storage.set('hajjNumberFinal',this.hajjNumber);
         this.storage.set('name',this.hajjData.name);
         this.storage.set('imageUrl',this.hajjData.imageUrl);
         this.navCtrl.push(HomePage);
+        setTimeout(()=>{
+          this.loading = false;
+        }, 1000);
       });
 
     this.geoLocation.getCurrentPosition().then(postion => {
