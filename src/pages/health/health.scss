@@ -1,12 +1,48 @@
 page-health {
+    .scroll-content{
+      overflow: hidden;
+    }
     #map {
-        height: 52%;
+        height: calc( 100% - 80px );
         width: 100%;
     }
     #request-map {
-        height: 30%;
-        width: 90%;
-        margin-bottom: 20px;
-        margin-left: 20px;
+      height: 200px;
+      width: 100%;
+      margin: 20px 0;
+    }
+    .card{
+      padding: 24px;
+      margin: 16px;
+      position: relative;
+      border-radius: 16px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+      transition: 1s all;
+      max-height: 24px;
+      overflow: hidden;
+      .title{
+        position: relative;
+        text-align: left;
+        margin-top: -10px;
+        font-size: 14px;
+        transition: 0.5s all;
+        font-weight: 400;
+        color: #9b9b9b;
+        margin-bottom: 34px;
+        .collapse-icon{
+          position: absolute;
+          right: 0;
+          top: 5px;
+          font-size: 14px;
+        }
+      }
+      &.collapse{
+        max-height: 100%;
+        .title{
+          font-size: 24px;
+          text-align: center;
+        }
+      }
     }
 }

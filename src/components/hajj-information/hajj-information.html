@@ -12,7 +12,7 @@
       </div>
       <div class="card-content row">
         <div class="col-6">
-          <div class="group">
+          <div class="group input">
             <input
               [(ngModel)]="hajjData.name"
               disabled
@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="col-6">
-          <div class="group">
+          <div class="group input">
             <input
               [(ngModel)]="hajjData.lastName"
               disabled
@@ -38,20 +38,28 @@
           </div>
         </div>
         <div class="col-6">
-          <div class="group radio flex">
-            <div class="md-radio md-radio-inline">
-                <input id="male" type="radio" name="male" [checked]="hajjData.gender === 0">
-                <label for="male">Male</label>
+          <div class="radio">
+            <label class="custom-radio-btn" for="male">
+                <input type="radio" name="css" id="male" value="male" [checked]="hajjData.gender === 0" disabled/>
+                <span class="custom-radio-outer">
+                  <span class="custom-radio-inner"></span>
+                </span>
+                Male
+              </label>
+              <label class="custom-radio-btn" for="css2">
+                <input type="radio" name="css" id="css2" value="transform" [checked]="hajjData.gender === 1" disabled/>
+                <span class="custom-radio-outer">
+                  <span class="custom-radio-inner"></span>
+                </span>
+                Female
+              </label>
+              <div class="label">
+                  <span>Gender *</span>
               </div>
-              <div class="md-radio md-radio-inline">
-                <input id="female" type="radio" name="female" [checked]="hajjData.gender === 1">
-                <label for="female">Female</label>
-              </div>
-            <label>Gender *</label>
           </div>
         </div>
         <div class="col-6">
-          <div class="group">
+          <div class="group input">
             <input
               [(ngModel)]="hajjData.phoneNumber"
               disabled
@@ -64,7 +72,7 @@
           </div>
         </div>
         <div class="col-12">
-          <div class="group">
+          <div class="group input">
             <input
               [value]="getAgeGroup(hajjData.age)"
               disabled
@@ -77,7 +85,7 @@
           </div>
         </div>
         <div class="col-12">
-          <div class="group">
+          <div class="group input">
             <input
               [value]="getNationality(hajjData.nationality)"
               disabled
@@ -90,7 +98,7 @@
           </div>
         </div>
         <div class="col-12">
-          <div class="group">
+          <div class="group input">
             <input
               [(ngModel)]="hajjData.campaignName"
               disabled
@@ -100,32 +108,6 @@
             <span class="highlight"></span>
             <span class="bar"></span>
             <label>Campaign Name *</label>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="group radio">
-            <div class="md-radio md-radio-inline">
-                <input id="yesWithChild" type="radio" name="yesWithChild" [checked]="hajjData.travelingWithChild">
-                <label for="yesWithChild">Yes</label>
-              </div>
-              <div class="md-radio md-radio-inline">
-                <input id="noWithChild" type="radio" name="noWithChild" [checked]="!hajjData.travelingWithChild">
-                <label for="noWithChild">No</label>
-              </div>
-            <label>Traveling With Child *</label>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="group radio">
-            <div class="md-radio md-radio-inline">
-                <input id="yesWithElder" type="radio" name="yesWithChild" [checked]="hajjData.travelingWithElder">
-                <label for="yesWithElder">Yes</label>
-              </div>
-              <div class="md-radio md-radio-inline">
-                <input id="noWithElder" type="radio" name="noWithChild" [checked]="!hajjData.travelingWithElder">
-                <label for="noWithElder">No</label>
-              </div>
-            <label>Traveling With Elder *</label>
           </div>
         </div>
       </div>
