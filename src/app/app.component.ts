@@ -58,22 +58,26 @@ export class MyApp{
           });
         }
       });
-    });
 
-    this.geoLocation.watchPosition().subscribe((postion: any) => {
-      storage.get('hajjNumberFinal').then((hajjNumber) => {
-        if(hajjNumber) {
-          this.registrationProvider.getHajjData(hajjNumber).subscribe( (data: any) => {
-            data.postion.lat = postion.coords.latitude;
-            data.postion.lng = postion.coords.longitude;
-            this.registrationProvider.RegisterHajj(data,hajjNumber).subscribe(res => {
-
-            })
-          })
+      this.geoLocation.watchPosition().subscribe((postion: any) => {
+        console.log('location changed: ', JSON.stringify(postion));
+        if(postion.coords) {
+          storage.get('hajjNumberFinal').then((hajjNumber) => {
+            if(hajjNumber) {
+              this.registrationProvider.getHajjData(hajjNumber).subscribe( (data: any) => {
+                data.latitude = postion.coords.latitude;
+                data.longitude = postion.coords.longitude;
+                this.registrationProvider.RegisterHajj(data,hajjNumber).subscribe(res => {
+                })
+              })
+            }
+          });
         }
       });
 
     });
+
+
     statusBar.styleDefault();
 
 
