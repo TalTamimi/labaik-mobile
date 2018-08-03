@@ -22,6 +22,11 @@ hajj-timeline {
         animation-duration: 0.5s;
         animation-fill-mode: forwards;
         overflow: hidden;
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        -o-transform: translateZ(0);
+        transform: translateZ(0);
         .line {
           width: 2px;
           background: #dddddd;
